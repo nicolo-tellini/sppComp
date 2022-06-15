@@ -17,7 +17,7 @@ cit. Kent Beck
   <img src="https://github.com/nicolo-tellini/sppComb/blob/main/sppComp.flow.png" alt="sppComb flow"/>
 </p>
 
-## Directory tree structure
+## Organised directory structure
 ```{bash}
 .
 ├── seq
@@ -26,8 +26,12 @@ cit. Kent Beck
 ├── scr
 └── runner.sh
 ```
-*seq* stores the fastq files of the sequencing that **must** be named: <code>samplename.R1.fastq.gz</code> and <code>samplename.R2.fastq.gz</code>.<br />   *rep* stores the multifasta genome containing the *de novo* high quality whole genome assemblies of each *Saccharomyces* species;<br />
-At the end of the run, *cps* hosts two *txt* files: <code>BWA.cps.txt</code> and <code>COV.cps.txt</code><br />
+*seq* stores paired-end illumina <code>fastq</code> files of the samples to process.<br /> The <code>fastq</code> files **must** be named: <code>samplename.R1.fastq.gz</code> and <code>samplename.R2.fastq.gz</code>.<br /> 
+*rep* stores the reference ```saccharomyces_all_assemblies.fa``` genome, a concatenation of eight *de novo* chromosome-level end-to-end genome assemblies, one for each *Saccharomyces* species today known.;<br />
+At the end of the run, *cps* (that stands for *checkpoints*) hosts two *txt* files: <code>BWA.cps.txt</code> and <code>COV.cps.txt</code>. The name of the samples will be printed inside these two files at the end of STEP1 and STEP3, respectivelly. Sample names stored in these files prevent the pipeline to take them in consideration a second time. This allow the user to:
+* rerun only specifc sample (removing the sample names from <code>BWA.cps.txt</code> and <code>COV.cps.txt</code> or one of he two), 
+* restart the run in case the pipeline ends with errors, 
+* add a new batch of samples inside *seq* and run the pipeline (this times will process only the newly added samples ignoring the old ones because the sample names are not stored inside <code>BWA.cps.txt</code> and <code>COV.cps.txt</code>, yet).
 
 *scr*: scripts
 
