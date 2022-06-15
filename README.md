@@ -39,14 +39,13 @@ This protocol is designed for a desktop or computing server running an x86-64-bi
 see also [#3]()
 
 ### Softwares
-* samtools v1.10 or higher
-* bwa
+* [samtools](https://github.com/samtools/samtools/releases) v1.10 or higher
+* [bwa](https://github.com/lh3/bwa/releases)
 
 ### R packages
-* Biostrings
-* GenomicRanges
-* data.table
-* tidyverse
-* ggplot2
+* [Biostrings](https://www.bioconductor.org/packages/release/bioc/html/Biostrings.html)
+* [GenomicRanges](https://www.bioconductor.org/packages/release/bioc/html/GenomicRanges.html)
+* [data.table](https://rdocumentation.org/packages/data.table/versions/1.14.2)
+* [ggplot2](https://ggplot2.tidyverse.org/)
 
 ## Citations
