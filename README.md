@@ -21,13 +21,11 @@ cit. Kent Beck
   <img src="https://github.com/nicolo-tellini/sppComb/blob/main/sppComp.flow.png" alt="sppComb flow"/>
 </p>
 
-## Straight to the output
+This is an example of the plot generated with the industrial strain CBS 2834.
 
 <p align="center">
   <img src="https://github.com/nicolo-tellini/sppComb/blob/main/CBS2834_profile.png" alt="CBS2834 profile"/>
 </p>
-
-
 
 ## Directory tree structure
 
