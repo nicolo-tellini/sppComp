@@ -23,6 +23,8 @@ cit. Kent Beck
   <img src="https://github.com/nicolo-tellini/sppComb/blob/main/CBS2834_profile.png" alt="CBS2834 profile"/>
 </p>
 
+
+
 ## Directory tree structure
 
 An organised work directory simplifies the accessibility to data.<br />
