@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/nicolo-tellini/sppComb/blob/main/workinprogress.jpg" alt="workinprogress"/>
+</p>
+
 # SppComp
 
 **SppComp: Saccharomyces species composition**
