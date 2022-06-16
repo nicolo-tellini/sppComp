@@ -159,10 +159,11 @@ A second version of the algorithm bwa mem, called bwa-mem2 has been realised in 
 
 Is it really usefull saving 2:55 min ?
 
-Well, it depends on the size of your dataset and if this improvment can be obtained for each sample.
+Well, it depends on the size of your dataset and if this improvement can be obtained for each sample.
 
 Think larger, for a single sample 2:55 min is not so much, but what about for a dataset of 50, 1000, 10K samples? 
 
 The testing is ongoing.
+
 About samtools coverage: 
 If the implementations suggested in the issues [1662](https://github.com/samtools/samtools/issues/1662) and [1664](https://github.com/samtools/samtools/issues/1664) of samtools coverage will be accepted, the runtime of STEP3 might become negligible.
