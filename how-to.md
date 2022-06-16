@@ -14,7 +14,7 @@ The only section you want to interact with is
 
 shortReadMapping="yes" # change with "no" if you want to skip STEP1
 # How many samples do you want to align at the same time?
-nSamplesBWA=2 
+nSamplesBWA=1 
 # How many threads do you want to use, for each sample?
 nThreads=2 
 
@@ -51,7 +51,7 @@ pdf="single" # "single" or "multi"
 
 ```
 
-The line above show the default parameters. 
+The lines above show the default parameters. The default parameters are not greedy and allow a smooth run also in a laptop with few resources such as 4 cores and 8GB of RAM.
 
 ### I modified the runner.sh and now?
 
@@ -96,8 +96,9 @@ coverage stats... OK
 plotting species components ...
 species plot... OK
 ```
+If the pipeline ends withouth errors, the results are stored inside the *plots* directory. 
 
-Here an example of the plot of the strain CBS 2834 that is stored inside *plots* dir. at the end of the pipeline:
+Here an example of the strain CBS 2834.
 
 <p align="center">
   <img src="https://github.com/nicolo-tellini/sppComb/blob/main/CBS2834_profile.png" alt="sppComb flow"/>
