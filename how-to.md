@@ -98,6 +98,22 @@ species plot... OK
 ```
 If the pipeline ends withouth errors, the results are stored inside the *plots* directory. 
 
+Let's process the sample with deafult parameters:
+
+378MB CBS2834.R1.fastq.gz
+359MB CBS2834.R2.fastq.gz
+
+The performances: 
+
+| STEP | Time | Max.RAM |
+| :---:         |     :---:      |          :---: |
+| 1   | 10:53 min     | 1.7 GB    |
+| 2     | 4 s       | 0.4 GB      |
+| 3     | 3:10 min       | 10.4 MB      |
+| 4     | 2 s       | 13.3 MB      |
+
+
+
 Here an example of the strain CBS 2834.
 
 <p align="center">
