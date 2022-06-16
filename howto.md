@@ -144,10 +144,23 @@ The performances:
 | 4     | 2 s       | 13.3 MB      |
 
 
-If the implementations suggested in the issues [1662](https://github.com/samtools/samtools/issues/1662) and [1664](https://github.com/samtools/samtools/issues/1664) of samtools coverage will be accepted, STEP3 might become negligible.
-
 Here an example of the strain CBS 2834.
 
 <p align="center">
   <img src="https://github.com/nicolo-tellini/sppComb/blob/main/CBS2834_profile.png" alt="sppComb flow"/>
 </p>
+
+## Cooming soon
+A second version of the algorithm bwa mem, called bwa-mem2 has been realised in 2019,  
+| STEP | Time | Max.RAM |
+| :---:         |     :---:      |          :---: |
+| 1 BWA mem  | 10:53 min     | 1.7 GB    |
+| 1 BWA mem2     | 8:20 min       | 1.9 GB      |
+
+Is it really usefull saving 2:55 min ?
+
+Well, it depends on the size of your dataset and if this improvment can be obtained for each sample.
+
+Think larger, for a single sample 2:55 min is not so much, but what about for a dataset of 50, 1000, 10K samples? 
+
+If the implementations suggested in the issues [1662](https://github.com/samtools/samtools/issues/1662) and [1664](https://github.com/samtools/samtools/issues/1664) of samtools coverage will be accepted, STEP3 might become negligible.
