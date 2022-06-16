@@ -2,7 +2,7 @@ The setup of the run requires you change the paremeters in the <code>runner.sh</
 
 ### runner.sh
 
-The only section you want to interact with is  
+The only section you have to interact with is  
 
 ```sh
 
@@ -70,7 +70,7 @@ A number will be printed on the terminal. For example:
 ```
 The number outside the squared brackets is the process ID of the command you run. 
 
-You may to save it on a txt file. In case you mistakenly run the pipeline with the incorrect parameters,
+You may want to save it on a txt file. In case you mistakenly run the pipeline with the incorrect parameters,
 
 the command: 
 
@@ -81,7 +81,7 @@ kill -9 $yourPID
 will stop the pipeline.
 
 
-nohup generates a log file, called <code>nohup.out</code>, which collects the steps and the information concerning the current status of the pipeline as well errors. It is a *txt* file and can be easily accessed with <code>cat</code>.
+nohup generates a log file, called <code>nohup.out</code>, which collects the steps and the information concerning the current status of the pipeline as well errors. It is a *txt* file and can be accessed with <code>cat</code>.
 
 An example of <code>nohup.out</code> :
 
