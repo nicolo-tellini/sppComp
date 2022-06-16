@@ -167,3 +167,12 @@ The testing is ongoing.
 
 About samtools coverage: 
 If the implementations suggested in the issues [1662](https://github.com/samtools/samtools/issues/1662) and [1664](https://github.com/samtools/samtools/issues/1664) of samtools coverage will be accepted, the runtime of STEP3 might become negligible.
+
+Updated bwa-mem2, new samtools 1.14, fixmate, sort, mrkdup
+
+| STEP | Time | Max.RAM |
+| :---:         |     :---:      |          :---: |
+| 1   | 5:11 min     | 2.8 GB    |
+| 2     | 4 s       | 0.4 GB      |
+| 3     | 3:05 min       | 11.4 MB      |
+| 4     | 2 s       | 13.3 MB      |
