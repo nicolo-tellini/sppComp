@@ -29,6 +29,14 @@ cd sppComb
 ```
 Find out HOW-TO run, [HERE](https://github.com/nicolo-tellini/sppComb/blob/main/howto.md). 
 
+## WANT KNOW MORE ABOUT 
+
+[Operating principle]()
+
+[Testing](https://github.com/nicolo-tellini/sppComb/blob/main/testing.md)
+
+[Organisation of the directories](https://github.com/nicolo-tellini/sppComb/blob/main/dirtree.md)
+
 ## Release history
 
 * v1.0.0 Released on 2023
