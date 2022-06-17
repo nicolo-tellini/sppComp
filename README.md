@@ -29,7 +29,7 @@ cd sppComb
 ```
 Find out HOW-TO run, [HERE](https://github.com/nicolo-tellini/sppComb/blob/main/howto.md). 
 
-## Want to know more about 
+## FIND OUT more about 
 
 [Operating principle]()
 
