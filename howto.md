@@ -56,32 +56,18 @@ pdf="single" # "single" or "multi"
 The default parameters are not greedy and allow a smooth run also in a laptop with a few resources.
 
 
-### I modified the runner.sh and now?
-
-You can move the fastqs files inside *seq* and execute the pipeline. 
+### run
 
 I suggest the following command:
 
 ```sh
 nohup bash runner.sh &
 ```
-
 A number will be printed on the terminal. For example:
-
 ```sh
 [7] 81589
 ```
-The number outside the squared brackets is the process ID of the command you run. 
-
-You may want to save it on a txt file. In case you mistakenly run the pipeline with the incorrect parameters,
-
-the command: 
-
-```sh
-kill -9 $yourPID
-```
-
-will stop the pipeline.
+The number outside the squared brackets is the process ID of the command you run. You may want to save it on a txt file. In case you mistakenly run the pipeline with the incorrect parameter you can kill the run.
 
 nohup generates a log file, called <code>nohup.out</code>, which collects the steps and the information concerning the current status of the pipeline as well errors. It is a *txt* file and can be accessed with <code>cat</code>.
 
