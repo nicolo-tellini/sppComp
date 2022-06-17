@@ -1,0 +1,24 @@
+## Testing
+
+Machine details:<br />
+Processor: Intel(R) Xeon(R) Gold 6152 CPU @ 2.10GHz<br />
+OS: openSUSE Leap 15.2<br />
+Kernel: Linux 5.3.18-lp152.106-default<br />
+Architecture: x86-64<br />
+Memory: 504GB<br />
+
+The dataset: 
+ Sample	    |  Dataset source				|  No. of reads	| Read length 
+ --------- | --------- | --------- | --------- 
+ CBS 2834	|  SRA: SRR1119201 				| 2 x 4.7 M	|	101bp
+
+
+The test has been performed with the **deafult** parameters reported in [HOWTO](https://github.com/nicolo-tellini/sppComb/edit/main/howto.md#runnersh).
+
+The performances: 
+| STEP | Time | Max.RAM |
+| :---:         |     :---:      |          :---: |
+| 1   | 5:11 min     | 2.8 GB    |
+| 2     | 4 s       | 0.4 GB      |
+| 3     | 3:05 min       | 11.4 MB      |
+| 4     | 2 s       | 13.3 MB      |
