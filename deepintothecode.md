@@ -15,6 +15,14 @@ fi
 ```
 where <code>i</code> hosts the number of samples currently running and <code>nSamplesBWA</code> the max number of samples the script processes in parallel. 
 
+# Genome binning 
+
+The fasta genome is binnded in R by vectorialized functions from <code>GenomicRanges</code> library. 
+<code>fwrite</code> from <code>data.table</code> replaces the <code>write.table</code> speeding up the step resulting in an enanchement of up to 40x <sup>[3](https://stackoverflow.com/questions/10505605/speeding-up-the-performance-of-write-table),[4](https://predictivehacks.com/the-fastest-way-to-read-and-write-file-in-r/)</sup>.
+
+# The coverage extraction 
+
+The data about the coverage are recovered with <code>samtools coverage</code>, introduced in version 1.10. Compared to <code>samtools depth</code>, <code>samtools coverage</code> computes statitcs about the depth at each specified region and returns the results on a tabulated text. Altought at the time I am writing this lines, <code>samtools coverage</code> does not support <code>bed</code> files nor custom outputs these improvements have been suggested and taken in consideration by samtools' guys ([1662](https://github.com/samtools/samtools/issues/1662) and [1664](https://github.com/samtools/samtools/issues/1664)). As soon as available, they will be implementend in the pipeline, overcoming the necessity to run the command for each single region. 
 
 
 
@@ -22,3 +30,5 @@ where <code>i</code> hosts the number of samples currently running and <code>nSa
 
 [1](https://ieeexplore.ieee.org/document/8820962) Vasimuddin, Md, et al. "Efficient architecture-aware acceleration of BWA-MEM for multicore systems." 2019 IEEE International Parallel and Distributed Processing Symposium (IPDPS). IEEE, 2019.<br />
 [2](https://github.com/samtools/samtools/releases/tag/1.14) samtools v 1.14
+[3](https://stackoverflow.com/questions/10505605/speeding-up-the-performance-of-write-table) Stack Overflow
+[4](https://predictivehacks.com/the-fastest-way-to-read-and-write-file-in-r/) Predictive Hacks by Billy & George
