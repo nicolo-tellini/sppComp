@@ -1,8 +1,8 @@
-# HOWTO
+# HOW-TO
 
 The setup of the run requires you change the paremeters in the <code>runner.sh</code> with your favorite text editor.
 
-### runner.sh
+### :walking: runner.sh 
 
 The only section you have to interact with is  
 
@@ -56,7 +56,7 @@ pdf="single" # "single" or "multi"
 The default parameters are not greedy and allow a smooth run also in a laptop with a few resources.
 
 
-### run
+### :runner: run
 
 I suggest the following command:
 
@@ -85,4 +85,6 @@ species plot... OK
 ```
 If the pipeline ends without errors, the results are stored inside the *plots* directory. 
 
-### GG!
+### :v: GG!
+
+If there are errors you do not how to fix reach out to me here :point_right: nicolo.tellini.2@gmail.com
