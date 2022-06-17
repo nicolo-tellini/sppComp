@@ -13,7 +13,7 @@ The dataset:
  CBS 2834	|  SRA: SRR1119201 				| 2 x 4.7 M	|	101bp
 
 
-The test has been performed with the **deafult** parameters reported in [HOWTO](https://github.com/nicolo-tellini/sppComb/edit/main/howto.md#runnersh).
+The test has been performed with the **deafult** parameters reported in [HOWTO](https://github.com/nicolo-tellini/sppComb/blob/main/howto.md).
 
 The performances: 
 | STEP | Time | Max.RAM |
