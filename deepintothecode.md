@@ -1,10 +1,11 @@
 # The alignment
 sppComb implements state-of-art tools for boosting the perfomances as well as an efficient use of the threads.
-bwa-mem2 is the new implementation of bwa algorithm, by mean diverse low level optimization "*resulting in up to up to 3.5x and 2.4x speedups on end-to-end compute time over the original BWA-MEM on single thread and single socket of Intel Xeon Skylake processor*" <sup>[1](https://ieeexplore.ieee.org/document/8820962)</sup>.
 
-samtools versions 1.14 comes along with an improved <code>sort</code> command in the use of temporary files "*both tidying up if it fails and recovery when facing pre-existing temporary files*" <sup>[2](https://github.com/samtools/samtools/releases/tag/1.14)</sup>. This allows the piping (<code>|</code>) of most of the <code>samtools</code> commands that generate the <code>bam</code> file (<code>fixmate</code>,<code>sort</code>,<code>markdup</code>).
+[bwa-mem2](https://github.com/bwa-mem2/bwa-mem2) is the new implementation of bwa algorithm, by mean diverse low level optimization "*resulting in up to up to 3.5x and 2.4x speedups on end-to-end compute time over the original BWA-MEM on single thread and single socket of Intel Xeon Skylake processor*" <sup>[1](https://ieeexplore.ieee.org/document/8820962)</sup>.
 
-The code is embedded inside a bash for loop that controls the the number of sample to process in parallel. The terminal part of the code hosts a job controller that allows an efficient use of the threads required. This is obtained by an if statment that allows the for loop to proceed to the next sample as soon as the number of threads required moves down below the upper limit imposed by the parameters specified in the <code>runner.sh</code>.
+[samtools](https://github.com/samtools/samtools) versions 1.14 comes along with an improved <code>sort</code> command in the use of temporary files "*both tidying up if it fails and recovery when facing pre-existing temporary files*" <sup>[2](https://github.com/samtools/samtools/releases/tag/1.14)</sup>. This allows the piping (<code>|</code>) of most of the <code>samtools</code> commands that generate the <code>bam</code> file (<code>fixmate</code>,<code>sort</code>,<code>markdup</code>).
+
+The code is embedded inside a bash for loop that controls the the number of sample to process in parallel. The terminal part of the code hosts a job controller that allows the **efficient** use of the threads required. This is obtained by an if statment that permits the for loop to proceed to the next sample as soon as the number of threads required moves down below the upper limit imposed by the parameters specified in the <code>runner.sh</code>.
 
 ```sh
 if (( i % nSamplesBWA == 0 )); then
@@ -12,12 +13,12 @@ wait -n
 i=$(($nSamplesBWA-1))
 fi
 ```
+where <code>i</code> hosts the number of samples currently running and <code>nSamplesBWA</code> the max number of samples the script processes in parallel. 
 
 
-https://github.com/bwa-mem2/bwa-mem2
-
-# Efficient use of the threads
 
 
-[1](https://ieeexplore.ieee.org/document/8820962) Vasimuddin, Md, et al. "Efficient architecture-aware acceleration of BWA-MEM for multicore systems." 2019 IEEE International Parallel and Distributed Processing Symposium (IPDPS). IEEE, 2019.
+# References
+
+[1](https://ieeexplore.ieee.org/document/8820962) Vasimuddin, Md, et al. "Efficient architecture-aware acceleration of BWA-MEM for multicore systems." 2019 IEEE International Parallel and Distributed Processing Symposium (IPDPS). IEEE, 2019.<br />
 [2](https://github.com/samtools/samtools/releases/tag/1.14) samtools v 1.14
