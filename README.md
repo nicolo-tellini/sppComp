@@ -27,7 +27,7 @@ cit. Kent Beck
 git clone https://github.com/nicolo-tellini/sppComb.git
 cd sppComb
 ```
-HOWTO run the pipeline [here](https://github.com/nicolo-tellini/sppComb/blob/main/howto.md) 
+HOWTO run the pipeline [HERE](https://github.com/nicolo-tellini/sppComb/blob/main/howto.md) 
 
 ## Release history
 
