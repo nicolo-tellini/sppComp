@@ -22,7 +22,7 @@ The fasta genome is binnded in R by vectorialized functions from <code>GenomicRa
 
 # Coverage extraction 
 
-The data about the coverage are recovered with <code>samtools coverage</code>, introduced in version 1.10. Compared to <code>samtools depth</code>, <code>samtools coverage</code> computes statitcs about the depth at each specified region and returns the results on a tabulated text. Altought at the time I am writing this lines, <code>samtools coverage</code> does not support <code>bed</code> files nor custom outputs these improvements have been suggested and taken in consideration by samtools' guys ([1662](https://github.com/samtools/samtools/issues/1662) and [1664](https://github.com/samtools/samtools/issues/1664)). As soon as available, they will be implementend in the pipeline, overcoming the necessity to run the command for each single region. 
+The data about the coverage are recovered with <code>samtools coverage</code>, introduced in version 1.10. Compared to <code>samtools depth</code>, <code>samtools coverage</code> computes statitcs on the depth at each specified region and returns the results on a tabulated text. Altought at the time I am writing this lines, <code>samtools coverage</code> does not support <code>bed</code> files nor custom outputs these improvements have been suggested and taken in consideration by samtools' guys ([1662](https://github.com/samtools/samtools/issues/1662) and [1664](https://github.com/samtools/samtools/issues/1664)). As soon as available, they will be implementend in the pipeline, overcoming the necessity to run the command for each single region. 
 
 # Plotting
 
