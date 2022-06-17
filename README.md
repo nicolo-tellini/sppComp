@@ -33,6 +33,8 @@ Find out HOW-TO run, [HERE](https://github.com/nicolo-tellini/sppComb/blob/main/
 
 [Operating principle]()
 
+[The Implementation](https://github.com/nicolo-tellini/sppComb/blob/main/deepintothecode.md)
+
 [Testing](https://github.com/nicolo-tellini/sppComb/blob/main/testing.md)
 
 [Organisation of the directories](https://github.com/nicolo-tellini/sppComb/blob/main/dirtree.md)
