@@ -41,8 +41,6 @@ Find out HOW-TO run, [HERE](https://github.com/nicolo-tellini/sppComb/blob/main/
 
 * v1.0.0 Released on 2023
 
-The pipeline is designed for a desktop or server running a Unix operating system. Multithreaded processors are preferred to speed up the process since slower steps can be configured to use multiple threads. From extensive testing the RAM space is not a major concern, while the storage space might be considered depending on the dataset size in input. Stable Internet connection is required for the installation of **SppComp** dependencies.
-
 ## Dependencies
 
 ### Softwares
