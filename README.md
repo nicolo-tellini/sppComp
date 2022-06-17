@@ -46,8 +46,10 @@ The pipeline is designed for a desktop or server running a Unix operating system
 ## Dependencies
 
 ### Softwares
-* [samtools](https://github.com/samtools/samtools/releases) v1.10 or higher
-* [bwa](https://github.com/lh3/bwa/releases)
+* [samtools](https://github.com/samtools/samtools/releases) v1.14 
+* [bwa-mem2](https://github.com/bwa-mem2/bwa-mem2)
+
+NOTE: precompiled binaries are in scr directory so you do **not** need to install samtools v1.14 and bwa-mem2.
 
 ### R libraries
 * [Biostrings](https://www.bioconductor.org/packages/release/bioc/html/Biostrings.html)
