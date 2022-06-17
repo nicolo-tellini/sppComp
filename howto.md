@@ -67,7 +67,7 @@ A number will be printed on the terminal. For example:
 ```sh
 [7] 81589
 ```
-The number outside the squared brackets is the process ID of the command you run. You may want to save it on a txt file. In case you mistakenly run the pipeline with the incorrect parameter you can kill the run. <code>nohup</code> generates a log file, called <code>nohup.out</code>, which collects the steps and the information concerning the **current status** of the pipeline as well **errors**. It is a *txt* file and can be accessed with <code>cat</code>.
+The number outside the squared brackets is the process ID of the command you run. You may want to conserve it. In case you mistakenly run the pipeline with the incorrect parameter you can kill it. <code>nohup</code> generates a log file, called <code>nohup.out</code>, which collects the steps and the information concerning the **current status** of the pipeline as well **errors**. It is a txt file and can be accessed with <code>cat</code>.
 
 An example of <code>nohup.out</code> :
 
