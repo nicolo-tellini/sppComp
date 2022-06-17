@@ -31,13 +31,13 @@ Find out HOW-TO run, [HERE](https://github.com/nicolo-tellini/sppComb/blob/main/
 
 ## FIND OUT more about 
 
-[Operating principle]()
+:heavy_check_mark: [Operating principle]()
 
-[The Implementation](https://github.com/nicolo-tellini/sppComb/blob/main/deepintothecode.md)
+:heavy_check_mark: [The Implementation](https://github.com/nicolo-tellini/sppComb/blob/main/deepintothecode.md)
 
-[Testing](https://github.com/nicolo-tellini/sppComb/blob/main/testing.md)
+:heavy_check_mark: [Testing](https://github.com/nicolo-tellini/sppComb/blob/main/testing.md)
 
-[Organisation of the directories](https://github.com/nicolo-tellini/sppComb/blob/main/dirtree.md)
+:heavy_check_mark: [Organisation of the directories](https://github.com/nicolo-tellini/sppComb/blob/main/dirtree.md)
 
 ## Release history
 
