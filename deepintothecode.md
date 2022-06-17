@@ -29,6 +29,6 @@ The data about the coverage are recovered with <code>samtools coverage</code>, i
 # References
 
 [1](https://ieeexplore.ieee.org/document/8820962) Vasimuddin, Md, et al. "Efficient architecture-aware acceleration of BWA-MEM for multicore systems." 2019 IEEE International Parallel and Distributed Processing Symposium (IPDPS). IEEE, 2019.<br />
-[2](https://github.com/samtools/samtools/releases/tag/1.14) samtools v 1.14
-[3](https://stackoverflow.com/questions/10505605/speeding-up-the-performance-of-write-table) Stack Overflow
-[4](https://predictivehacks.com/the-fastest-way-to-read-and-write-file-in-r/) Predictive Hacks by Billy & George
+[2](https://github.com/samtools/samtools/releases/tag/1.14) samtools v 1.14<br />
+[3](https://stackoverflow.com/questions/10505605/speeding-up-the-performance-of-write-table) Stack Overflow<br />
+[4](https://predictivehacks.com/the-fastest-way-to-read-and-write-file-in-r/) Predictive Hacks by Billy & George<br />
