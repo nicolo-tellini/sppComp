@@ -22,3 +22,5 @@ The performances:
 | 2     | 4 s       | 0.4 GB      |
 | 3     | 3:05 min       | 11.4 MB      |
 | 4     | 2 s       | 13.3 MB      |
+
+The perfomances have been measured with <code>/usr/bin/time -v</code>
