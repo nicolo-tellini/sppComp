@@ -1,7 +1,7 @@
 # Alignment
 sppComb implements state-of-art tools for boosting the perfomances as well as an efficient use of the threads.
 
-[bwa-mem2](https://github.com/bwa-mem2/bwa-mem2) is the new implementation of bwa algorithm, by mean diverse low level optimizations "*resulting in up to up to 3.5x and 2.4x speedups on end-to-end compute time over the original BWA-MEM on single thread and single socket of Intel Xeon Skylake processor*" <sup>[1](https://ieeexplore.ieee.org/document/8820962)</sup>.
+[bwa-mem2](https://github.com/bwa-mem2/bwa-mem2) is the new implementation of bwa algorithm, by mean diverse low level optimizations "*resulting in up to 3.5x and 2.4x speedups on end-to-end compute time over the original BWA-MEM on single thread and single socket of Intel Xeon Skylake processor*" <sup>[1](https://ieeexplore.ieee.org/document/8820962)</sup>.
 
 [samtools](https://github.com/samtools/samtools) versions 1.14 comes along with an improved <code>sort</code> command in the use of temporary files "*both tidying up if it fails and recovery when facing pre-existing temporary files*" <sup>[2](https://github.com/samtools/samtools/releases/tag/1.14)</sup>. This allows the piping (<code>|</code>) of most of the <code>samtools</code> commands that generate the <code>bam</code> file (<code>fixmate</code>,<code>sort</code>,<code>markdup</code>).
 
