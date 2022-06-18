@@ -4,7 +4,7 @@
 
 **SppComp: Saccharomyces species composition**
 
-An automated and flexible computational framework for a rapid glympse to the species composition of *Saccharomyces* yeasts from large datasets of paired-end illumina reads adtapt to deal different computational resourses.
+An automated modular computational framework for a rapid glympse to the species composition of *Saccharomyces* yeasts from large datasets of paired-end illumina reads adtapt to deal different computational resourses.
 
 ## Description
   
