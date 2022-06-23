@@ -31,6 +31,8 @@ Find out HOW-TO run, [HERE](https://github.com/nicolo-tellini/sppComb/blob/main/
 
 :heavy_check_mark: [The Assemblies](https://github.com/nicolo-tellini/sppComb/blob/main/assemblies.md)
 
+:heavy_check_mark: [Competitive mapping](https://academic.oup.com/mbe/article/36/12/2861/5545524?login=false)
+
 :heavy_check_mark: [The Implementation](https://github.com/nicolo-tellini/sppComb/blob/main/deepintothecode.md)
 
 :heavy_check_mark: [Testing](https://github.com/nicolo-tellini/sppComb/blob/main/testing.md)
