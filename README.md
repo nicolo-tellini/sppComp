@@ -29,7 +29,7 @@ Find out HOW-TO run, [HERE](https://github.com/nicolo-tellini/sppComb/blob/main/
 
 ## FIND OUT more about 
 
-:heavy_check_mark: [Operating principle]()
+:heavy_check_mark: [The Assemblies]()
 
 :heavy_check_mark: [The Implementation](https://github.com/nicolo-tellini/sppComb/blob/main/deepintothecode.md)
 
