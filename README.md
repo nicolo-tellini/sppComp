@@ -27,6 +27,10 @@ cd sppComb
 ```
 Find out HOW-TO run, [HERE](https://github.com/nicolo-tellini/sppComb/blob/main/howto.md). 
 
+## HOW THE OUTPUT LOOK LIKE
+
+[CBS2834]https://github.com/nicolo-tellini/sppComb/blob/main/CBS2834_profile.png
+
 ## FIND OUT more about 
 
 :heavy_check_mark: [The Assemblies](https://github.com/nicolo-tellini/sppComb/blob/main/assemblies.md)
