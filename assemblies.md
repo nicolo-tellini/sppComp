@@ -1,4 +1,4 @@
-# per-species Assembly
+# per-species assembly
 *Saccharomyces cerevisiae* [SGD](http://sgd-archive.yeastgenome.org/sequence/S288C_reference/genome_releases/) S288C_reference_genome_R64-3-1_20210421.tgz  
 *Saccharomyces paradoxus* [YPS138](https://yjx1217.github.io/Yeast_PacBio_2016/data/) Yue, Jia-Xing, et al. 2017 Nature Genetics  
 *Saccharomyces jurei* [NCYC3947](https://www.ncbi.nlm.nih.gov/genome/?term=NCYC+3947) Naseeb, Samina, et al. 2018 G3: Genes, Genomes, Genetics  
