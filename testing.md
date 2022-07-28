@@ -23,6 +23,8 @@ The performances:
 | 3     | 3:05 min       | 11.4 MB      |
 | 4     | 2 s       | 13.3 MB      |
 
+With different number of threads
+
 4 THR piped samtools (faster but no full threads control)
 | STEP | Time | Max.RAM |
 | :---:         |     :---:      |          :---: |
