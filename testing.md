@@ -28,7 +28,7 @@ The performances:
 | :---:         |     :---:      |          :---: |
 | 1   | 3:18 min     | 3.3 GB    |
 
-4 THR piped samtools (slower but full threads control)
+4 THR unpiped samtools (slower but full threads control)
 | STEP | Time | Max.RAM |
 | :---:         |     :---:      |          :---: |
 | 1   | 4:05 min     | 3.3 GB    |
@@ -38,9 +38,9 @@ The performances:
 | :---:         |     :---:      |          :---: |
 | 1   | 5:11 min     | 2.8 GB    |
 
-6 THR piped samtools (slower but full threads control)
+6 THR unpiped samtools (slower but full threads control)
 | STEP | Time | Max.RAM |
 | :---:         |     :---:      |          :---: |
-| 1   | 5:11 min     | 2.8 GB    |
+| 1   | 2:50 min     | 3.6 GB    |
 
 The perfomances have been measured with <code>/usr/bin/time -v</code>.
