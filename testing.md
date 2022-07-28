@@ -36,7 +36,7 @@ The performances:
 6 THR piped samtools (faster but no full threads control)
 | STEP | Time | Max.RAM |
 | :---:         |     :---:      |          :---: |
-| 1   | 5:11 min     | 2.8 GB    |
+| 1   | 2:23 min     | 3.7 GB    |
 
 6 THR unpiped samtools (slower but full threads control)
 | STEP | Time | Max.RAM |
