@@ -53,8 +53,6 @@ Find out HOW-TO run, [HERE](https://github.com/nicolo-tellini/sppComb/blob/main/
 * [samtools](https://github.com/samtools/samtools/releases) v1.14 
 * [bwa-mem2](https://github.com/bwa-mem2/bwa-mem2)
 
-NOTE: precompiled binaries are in scr directory so you do **not** need to install samtools v1.14 and bwa-mem2.
-
 ### R libraries
 * [Biostrings](https://www.bioconductor.org/packages/release/bioc/html/Biostrings.html)
 * [GenomicRanges](https://www.bioconductor.org/packages/release/bioc/html/GenomicRanges.html)
