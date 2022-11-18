@@ -29,7 +29,9 @@ Find out HOW-TO run, [HERE](https://github.com/nicolo-tellini/sppComb/blob/main/
 
 ## THE OUTPUT
 
-[CBS2834](https://github.com/nicolo-tellini/sppComb/blob/main/CBS2834_profile.png)
+<p align="center">
+  <img src="https://github.com/nicolo-tellini/sppComb/blob/main/CBS2834_profile.png" alt="Sublime's custom image"/>
+</p>
 
 ## FIND OUT more about 
 
