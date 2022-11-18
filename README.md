@@ -1,4 +1,4 @@
-# SppComp
+# SppComp-SGRP5
 
 ![Mozilla Add-on](https://img.shields.io/amo/dw/nicolo-tellini?label=Downloads&logo=GitHub)
 
