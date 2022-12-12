@@ -8,10 +8,7 @@ sppComb implements state-of-art tools for boosting the performances as well as a
 The code is embedded inside a bash for loop that controls the number of samples to process in parallel. The terminal part of the code hosts a job controller that allows the **efficient** use of the threads required. This is obtained by an if statment that permits the for loop to proceed to the next sample as soon as the number of required threads moves down, below the upper limit imposed by the parameters specified in the <code>runner.sh</code>.
 
 ```sh
-if (( i % nSamplesBWA == 0 )); then
-wait -n
-i=$(($nSamplesBWA-1))
-fi
+ADD SEMAPHORE
 ```
 where <code>i</code> hosts the number of samples currently running and <code>nSamplesBWA</code> the max number of samples the script processes in parallel.
 
