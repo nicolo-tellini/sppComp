@@ -46,9 +46,9 @@ Find out HOW-TO run, [HERE](https://github.com/nicolo-tellini/sppComb/blob/main/
 
 :heavy_check_mark: [Competitive mapping](https://academic.oup.com/mbe/article/36/12/2861/5545524?login=false)
 
-:heavy_check_mark: [The Implementation](https://github.com/nicolo-tellini/sppComb/blob/main/deepintothecode.md)
+:warning: [The Implementation](https://github.com/nicolo-tellini/sppComb/blob/main/deepintothecode.md)
 
-:heavy_check_mark: [Testing](https://github.com/nicolo-tellini/sppComb/blob/main/testing.md)
+:warning: [Testing](https://github.com/nicolo-tellini/sppComb/blob/main/testing.md)
 
 :heavy_check_mark: [Organisation of the directories](https://github.com/nicolo-tellini/sppComb/blob/main/dirtree.md)
 
