@@ -19,7 +19,7 @@ The mantra is:
 cit. Kent Beck
 
 <p align="center">
-  <img src="https://github.com/nicolo-tellini/sppComb/blob/main/sppComp.flow.png" alt="sppComb flow"/>
+  <img src="https://github.com/nicolo-tellini/sppComb/blob/main/sppComp.flow.png2" alt="sppComb flow"/>
 </p>
 
 ## Download
