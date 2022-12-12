@@ -50,7 +50,7 @@ Find out HOW-TO run, [HERE](https://github.com/nicolo-tellini/sppComb/blob/main/
 
 ## Release history
 
-* v1.0.0 Released on 2023
+* v1.0.0 Released in 2023
 
 ## Dependencies
 
