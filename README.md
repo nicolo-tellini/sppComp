@@ -11,7 +11,17 @@
 
 **SppComp: Saccharomyces species composition**
 
-An automated modular computational framework for a rapid glympse to the species composition of *Saccharomyces* yeasts from large datasets of paired-end illumina reads adtapt to deal different computational resourses.
+An automated modular computational framework for a rapid glympse to the species composition and genomics features of *Saccharomyces* yeasts from large datasets of paired-end illumina reads, adtapt to deal different computational resourses.
+
+SppComp is realeased as part of the (SGRP5 project)[]. 
+
+SppComp allows the detection of: 
+
+- hybrids
+- hybrid ploidy (3n and 4n [3n + n])
+- introgressed DNA
+- aneuploidies (relative number)
+- copy number variations (CNVs)
 
 ## Description
   
