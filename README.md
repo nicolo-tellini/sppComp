@@ -39,8 +39,7 @@ git clone https://github.com/nicolo-tellini/sppComb.git
 
 cd sppComb
 ```
-## before running 
-Default options
+## Default options
 
 code chunck 1 -  binsize=10000
 code chunck 2
