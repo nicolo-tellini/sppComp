@@ -48,7 +48,7 @@ library(rstudioapi)
 
  argsVal <- commandArgs(trailingOnly = T)
  BaseDir <- argsVal[1]
- binsize=10000
+ binsize <- argsVal[2]
  
  setwd(BaseDir)
 
@@ -250,7 +250,7 @@ options(stringsAsFactors = F)
 
  argsVal <- commandArgs(trailingOnly = T)
  baseDir <- argsVal[1]
- binsize=10000
+ binsize <- argsVal[2]
  
  setwd(baseDir)
 
