@@ -31,17 +31,25 @@ The species composition of *Saccharomyces* strains plays a major role in biologi
   <img src="https://github.com/nicolo-tellini/sppComb/blob/main/sppComp.flow.png2" alt="sppComb flow"/>
 </p>
 
-## Download
+## Download and run
 
 ```sh
+
 git clone https://github.com/nicolo-tellini/sppComb.git
+
 cd sppComb
+
+R -e "rmarkdown::render('sppComp.Rmd')" --args [path to sppComp] > sppComp.log 2> sppComp.err &
 ```
 Default options
 
-step1 
-step2
-step3
+step1 -  binsize=10000
+step2 - 
+  nSamples=5 # number of samples to run in parallel 
+  nThreads=4 # per-sample number of threads 
+step3 - binsize=10000
+
+
 
 Find out HOW-TO run, [HERE](https://github.com/nicolo-tellini/sppComb/blob/main/howto.md). 
 
