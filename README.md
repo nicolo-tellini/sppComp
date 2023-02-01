@@ -38,18 +38,21 @@ The species composition of *Saccharomyces* strains plays a major role in biologi
 git clone https://github.com/nicolo-tellini/sppComb.git
 
 cd sppComb
-
-R -e "rmarkdown::render('sppComp.Rmd')" --args [path to sppComp] > sppComp.log 2> sppComp.err &
 ```
+## before running 
 Default options
 
-step1 -  binsize=10000
-step2 - 
+code chunck 1 -  binsize=10000
+code chunck 2
   nSamples=5 # number of samples to run in parallel 
-  nThreads=4 # per-sample number of threads 
-step3 - binsize=10000
+  nThreads=2 # per-sample number of threads 
+scode chunck 3
+  binsize=10000
 
-
+## running Rmarkdown
+```sh
+R -e "rmarkdown::render('sppComp.Rmd')" --args [path to sppComp] > sppComp.log 2> sppComp.err &
+```
 
 Find out HOW-TO run, [HERE](https://github.com/nicolo-tellini/sppComb/blob/main/howto.md). 
 
