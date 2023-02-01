@@ -47,8 +47,14 @@ code chunck 2
   nThreads=2 # per-sample number of threads 
 scode chunck 3
   binsize=10000
+  
+## How to run:
+
+- sppComp.sh
+- sppComp.Rmd
 
 ## running Rmarkdown
+
 ```sh
 R -e "rmarkdown::render('sppComp.Rmd')" --args [/full/path/to/sppComp] > sppComp.log 2> sppComp.err &
 ```
