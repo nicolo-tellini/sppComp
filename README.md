@@ -56,7 +56,7 @@ scode chunck 3
 ## running Rmarkdown
 
 ```sh
-R -e "rmarkdown::render('sppComp.Rmd')" --args [/full/path/to/sppComp] > sppComp.log 2> sppComp.err &
+R -e "rmarkdown::render('sppComp.Rmd')" --args [/full/path/to/sppComp] [binSize] > sppComp.log 2> sppComp.err &
 ```
 
 Find out HOW-TO run, [HERE](https://github.com/nicolo-tellini/sppComb/blob/main/howto.md). 
