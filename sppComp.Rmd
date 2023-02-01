@@ -24,7 +24,6 @@ R libraries :
 ### step 1: binning multi-species FASTA
 
 ```{r binner}
-# Mon Feb 21 16:53:01 2022 
 
 # Title: FASTA binner
 # Author: Nicolò T.
@@ -87,7 +86,6 @@ fwrite(x = bins,file =paste0(BaseDir,"/rep/binnedGenome.",binsize,".bed"),append
 ## step 2: indexing, mapping and coverage extraction
 
 ```{bash}
-#!/bin/bash
 
 #####################
 ### user settings ###
@@ -231,7 +229,6 @@ done
 ### step 3: plotting
 
 ```{r plot}
-# Mon Feb 21 18:03:18 2022 
 
 # Title: PLOT
 # Author: Nicolò T.
