@@ -37,6 +37,12 @@ The species composition of *Saccharomyces* strains plays a major role in biologi
 git clone https://github.com/nicolo-tellini/sppComb.git
 cd sppComb
 ```
+Default options
+
+step1 
+step2
+step3
+
 Find out HOW-TO run, [HERE](https://github.com/nicolo-tellini/sppComb/blob/main/howto.md). 
 
 ## THE OUTPUT
