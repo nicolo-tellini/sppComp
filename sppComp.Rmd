@@ -256,9 +256,9 @@ options(stringsAsFactors = F)
 
 # Libraries ----
 
-library(ggplot2,quietly = TRUE,verbose=FALSE)
-library(data.table,quietly = TRUE,verbose=FALSE)
-library(tidyverse,quietly = TRUE,verbose=FALSE)
+library(ggplot2)
+library(data.table)
+library(tidyverse)
 
 # Variables ----
 
