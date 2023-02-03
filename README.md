@@ -81,7 +81,7 @@ Both the constructs run the same scripts but while ```sppComp.sh``` allows an ag
 
 ## More about ...
 
-:heavy_check_mark: [The Assemblies](https://github.com/nicolo-tellini/sppComb/blob/main/assemblies.md)
+:warning:  [The Assemblies](https://github.com/nicolo-tellini/sppComb/blob/main/assemblies.md)
 
 :heavy_check_mark: [Competitive mapping](https://academic.oup.com/mbe/article/36/12/2861/5545524?login=false)
 
@@ -89,7 +89,7 @@ Both the constructs run the same scripts but while ```sppComp.sh``` allows an ag
 
 :warning: [Testing](https://github.com/nicolo-tellini/sppComb/blob/main/testing.md)
 
-:heavy_check_mark: [Organisation of the directories](https://github.com/nicolo-tellini/sppComb/blob/main/dirtree.md)
+:warning:  [Organisation of the directories](https://github.com/nicolo-tellini/sppComb/blob/main/dirtree.md)
 
 ## Release history
 
