@@ -76,8 +76,8 @@ Both the constructs run the same scripts but while ```sppComp.sh``` allows an ag
  3) Edit the user's settins 
  ```r
   binsize=10000
-  nSamples=5 # number of samples
-  nThreads=4 # per-sample number of threads 
+  nSamples=4 # number of samples
+  nThreads=1 # per-sample number of threads 
   ```
   4) Knit > PDF or HTML
  
