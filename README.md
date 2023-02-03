@@ -34,7 +34,6 @@ The species composition of *Saccharomyces* strains plays a major role in biologi
 ## Download and run
 
 ```sh
-
 git clone https://github.com/nicolo-tellini/sppComb.git
 
 cd sppComb
@@ -45,7 +44,7 @@ SppComp runner is provided in two different constructs:
 - ```sppComp.sh``` : a bash script
 - ```sppComp.Rmd``` : a Rmarkdown script
 
-Both the constructs run the same scripts but while ```sppComp.sh``` allows an agile editing from CLI it remains more suitable for large datasets on a server computer,```sppComp.Rmd```, instead, is recommended for people that prefer the use of the GUI. ```sppComp.Rmd``` ends with the generation of a report which fit better with a few samples.
+Both the constructs run the same scripts but while ```sppComp.sh``` allows an agile editing from CLI it remains more suitable for large datasets on a server computer. ```sppComp.Rmd```, instead, is recommended for people that prefer the use of the GUI. ```sppComp.Rmd``` ends with the generation of a report which fit better with a few samples.
 
 ## Default options
 
