@@ -5,9 +5,9 @@
 © logo nt & Chiara Vischioni
 
 [![Licence](https://img.shields.io/github/license/nicolo-tellini/sppComp-SGRP5?style=plastic)](https://github.com/nicolo-tellini/S.cerevisiaeData/blob/main/LICENSE)
-[![Release](https://img.shields.io/github/v/release/nicolo-tellini/sppComp?style=plastic)](https://github.com/nicolo-tellini/sppComp/releases/tag/v.1.0.0)
-[![release date](https://img.shields.io/github/release-date/nicolo-tellini/sppComp?color=violet&style=plastic)](https://github.com/nicolo-tellini/sppComp/releases/tag/v.1.0.0)
-[![commit](https://img.shields.io/github/last-commit/nicolo-tellini/sppComp?color=yellow&style=plastic)](https://github.com/nicolo-tellini/sppComp/graphs/commit-activity)
+[![Release](https://img.shields.io/github/v/release/nicolo-tellini/sppComp-SGRP5?style=plastic)](https://github.com/nicolo-tellini/sppComp/releases/tag/v.1.0.0)
+[![release date](https://img.shields.io/github/release-date/nicolo-tellini/sppComp-SGRP5?color=violet&style=plastic)](https://github.com/nicolo-tellini/sppComp/releases/tag/v.1.0.0)
+[![commit](https://img.shields.io/github/last-commit/nicolo-tellini/sppComp-SGRP5?color=yellow&style=plastic)](https://github.com/nicolo-tellini/sppComp/graphs/commit-activity)
 
 ## *Saccharomyces* species composition (sppComp)
 
