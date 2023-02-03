@@ -34,7 +34,7 @@ SppComp allows the detection of:
 The species composition of *Saccharomyces* strains plays a major role in biological studies providing valuable insights in the evolutionary history of the *genus* while being exploited for improving indutrial phenotypes. Short-read sequencing are the most popular choice for large-scale genomics projects due to their rapid processesing and affordable prices. As a leading model organisms, the *Saccharomyces* yeasts, heve been massively sequenced with short reads Illumina platfroms. However, integrating several short-read sequencing data from different projects may generate workflow bottlenecks slowing down genomic analysises. **SppComp**, a modular computational pipeline, takes advantage of the chromosome-level end-to-end genome assemblies produced/reannotated with [LRSDAY](https://github.com/yjx1217/LRSDAY) and competitive short read mapping, as implemented and described in [MuLo-YDH](https://bitbucket.org/lt11/muloydh/src/master/), to assess the species composition of *Saccharomyces* yeasts from large datasets of paired-end illumina reads. **SppComp** is written in bash and R. By means the implementation of state-of-the-art softwares, [functional programming](http://adv-r.had.co.nz/Functional-programming.html), [vectorised code](https://adv-r.hadley.nz/perf-improve.html#vectorise) and effective silly-billy bash tricks, **SppComp** reduces computational slowdowns, allowing a full control of the processes along with the possibility to skip steps, where appropriate.
 
 <p align="center">
-  <img src="https://github.com/nicolo-tellini/sppComb/blob/main/sppComp.flow.png2" alt="sppComb flow"/>
+  <img src="https://github.com/nicolo-tellini/sppComp/blob/main/misc/sppComp.flow.png" alt="sppComb flow"/>
 </p>
 
 ## Download and run
@@ -77,7 +77,7 @@ Find out HOW-TO run, [HERE](https://github.com/nicolo-tellini/sppComb/blob/main/
 ## THE OUTPUT
 
 <p align="center">
-  <img src="https://github.com/nicolo-tellini/sppComb/blob/main/CBS2834_profile.png" alt="Sublime's custom image"/>
+  <img src="https://github.com/nicolo-tellini/sppComb/blob/main/misc/CBS2834_profile.png" alt="Sublime's custom image" width="1200" height="700"/>
 </p>
 
 ## FIND OUT more about 
