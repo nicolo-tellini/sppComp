@@ -2,7 +2,7 @@
   <img src="https://github.com/nicolo-tellini/sppComp/blob/main/misc/g3940.png" alt="sppComb logo" width="450" height="300"/> 
 </p>
 
-© nt & PhD Chiara Vischioni
+© logo nt & PhD, Chiara Vischioni
 
 [![Licence](https://img.shields.io/github/license/nicolo-tellini/sppComp-SGRP5?style=plastic)](https://github.com/nicolo-tellini/S.cerevisiaeData/blob/main/LICENSE)
 [![Release](https://img.shields.io/github/v/release/nicolo-tellini/sppComp-SGRP5?style=plastic)](https://github.com/nicolo-tellini/S.cerevisiaeData/releases/tag/v.1)
