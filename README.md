@@ -110,8 +110,9 @@ Both the constructs run the same scripts but while ```sppComp.sh``` allows an ag
 ## Dependencies
 
 ### Softwares
-* [samtools](https://github.com/samtools/samtools/releases) v1.14 
-* [bwa-mem2](https://github.com/bwa-mem2/bwa-mem2)
+* [samtools](https://github.com/samtools/samtools/releases) v1.10 or higher
+* [bwa](https://github.com/lh3/bwa)
+* [gawk](https://www.gnu.org/software/gawk) v5.0.0 or higher
 
 ### R libraries
 * [Biostrings](https://www.bioconductor.org/packages/release/bioc/html/Biostrings.html)
