@@ -39,6 +39,14 @@ git clone https://github.com/nicolo-tellini/sppComb.git
 
 cd sppComb
 ```
+
+SppComp runner is provided in two different constructs:
+
+- ```sppComp.sh``` : a bash script
+- ```sppComp.Rmd``` : a Rmarkdown script
+
+Both the constructs run the same scripts but while ```sppComp.sh``` allows an agile editing from CLI it remains more suitable for large datasets,```sppComp.Rmd```, instead, is recommended for the generation of a report which fit better with a few samples.
+
 ## Default options
 
 code chunck 1 -  binsize=10000
