@@ -55,7 +55,7 @@ Both the constructs run the same scripts but while ```sppComp.sh``` allows an ag
 ## How to run:
 
 - sppComp.sh
-1) Edit the variable on the top of the file dedicated to the user.
+1) Edit the variables on the top of the file dedicated to the user.
   ```sh 
   #!/bin/bash
   
