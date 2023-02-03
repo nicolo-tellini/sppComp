@@ -47,30 +47,43 @@ cd sppComb
 
 SppComp runner is provided in two different constructs:
 
-- ```sppComp.sh``` : a bash script
-- ```sppComp.Rmd``` : a Rmarkdown script
+- ```sppComp.sh``` : a bash script for CLI use
+- ```sppComp.Rmd``` : a Rmarkdown script for GUI use (Rstudio)
 
-Both the constructs run the same scripts but while ```sppComp.sh``` allows an agile editing from CLI it remains more suitable for large datasets on a server computer. ```sppComp.Rmd```, instead, is recommended for people that prefer the use of the GUI. ```sppComp.Rmd``` ends with the generation of a report which fit better with a few samples.
+Both the constructs run the same scripts but while ```sppComp.sh``` allows an agile editing from CLI it remains more suitable for large datasets on a server computer. On the other hand, ```sppComp.Rmd``` is recommended for people that prefer the use of the GUI. ```sppComp.Rmd``` ends with the generation of a report (HTML/PDF) which better fit with a run of a few samples.
 
-## Default options
-
-code chunck 1 -  binsize=10000
-code chunck 2
-  nSamples=5 # number of samples to run in parallel 
-  nThreads=2 # per-sample number of threads 
-scode chunck 3
-  binsize=10000
-  
 ## How to run:
 
 - sppComp.sh
+1) Edit the variable on the top of the file dedicated to the user.
+  ```sh 
+  #!/bin/bash
+  
+  binsize=10000 # windows size
+  nSamples=4 # number of samples
+  nThreads=1 # per-sample number of threads
+  ```
+  2) run 
+
+  ```sh 
+    nohup bash sppComp.sh &
+  ```
+
 - sppComp.Rmd
 
-## running Rmarkdown
-
-```sh
-R -e "rmarkdown::render('sppComp.Rmd')" --args [/full/path/to/sppComp] [binSize] > sppComp.log 2> sppComp.err &
-```
+ 1) Open Rstudio
+ 2) File > Open File... > Browse to sppComp.Rmd 
+ 3) Edit the user's settins 
+ ```r
+  binsize=10000
+  nSamples=5 # number of samples
+  nThreads=4 # per-sample number of threads 
+  ```
+  4) Knit > PDF or HTML
+ 
+ The code is evaluated by default.
+ 
+ The default variables are the same as reported above. 
 
 Find out HOW-TO run, [HERE](https://github.com/nicolo-tellini/sppComb/blob/main/howto.md). 
 
