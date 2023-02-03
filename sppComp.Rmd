@@ -36,8 +36,8 @@ USER'S SETTINGS
  # START USER'S SETTINGS ----
   binsize=10000
   # parallel runs
-  nSamples=5 # number of samples
-  nThreads=4 # per-sample number of threads 
+  nSamples=4 # number of samples
+  nThreads=1 # per-sample number of threads 
  # END USER'S SETTINGS ----
  
  Sys.setenv(nSamples = nSamples)
