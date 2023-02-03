@@ -37,7 +37,7 @@ The species composition of *Saccharomyces* strains plays a major role in biologi
   <img src="https://github.com/nicolo-tellini/sppComp/blob/main/misc/sppComp.flow.png" alt="sppComb flow"/>
 </p>
 
-## Download and run
+## Download
 
 ```sh
 git clone https://github.com/nicolo-tellini/sppComb.git
@@ -85,8 +85,6 @@ Both the constructs run the same scripts but while ```sppComp.sh``` allows an ag
  
  The default variables are the same as reported above. 
 
-Find out HOW-TO run, [HERE](https://github.com/nicolo-tellini/sppComb/blob/main/howto.md). 
-
 ## THE OUTPUT
 
 <p align="center">
@@ -120,5 +118,6 @@ Find out HOW-TO run, [HERE](https://github.com/nicolo-tellini/sppComb/blob/main/
 * [GenomicRanges](https://www.bioconductor.org/packages/release/bioc/html/GenomicRanges.html)
 * [data.table](https://rdocumentation.org/packages/data.table/versions/1.14.2)
 * [ggplot2](https://ggplot2.tidyverse.org/)
+* [rstudioapi](https://rstudio.github.io/rstudioapi/) [if you use the Rmd only]
 
 ## Citations
