@@ -46,7 +46,11 @@ SppComp runner is provided in two different constructs:
 
 Both the constructs run the same scripts but while ```sppComp.sh``` allows an agile editing from CLI it remains more suitable for large datasets on a server computer. On the other hand, ```sppComp.Rmd``` is recommended for people that prefer the use of the GUI. ```sppComp.Rmd``` ends with the generation of a report (HTML/PDF) which better fit with a run of a few samples.
 
-## How to run:
+## the fastqs
+
+Move the fastws inside ```./seq/```. The fastqs **must** be gziped and suffixed \_1.fastq.gz and \_2.fastq.gz.
+
+## how to run:
 
 - sppComp.sh
 1) Edit the variables on the top of the file dedicated to the user.
@@ -79,7 +83,7 @@ Both the constructs run the same scripts but while ```sppComp.sh``` allows an ag
  
  The default variables are the same as reported above. 
 
-## More about ...
+## more about ...
 
 :warning:  [The Assemblies](https://github.com/nicolo-tellini/sppComb/blob/main/assemblies.md)
 
