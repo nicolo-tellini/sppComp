@@ -73,7 +73,7 @@ Both the constructs run the same scripts but while ```sppComp.sh``` allows an ag
   nSamples=4 # number of samples
   nThreads=1 # per-sample number of threads 
   ```
-  4) Knit > [PDF](https://github.com/nicolo-tellini/sppComp/blob/main/misc/sppComp.pdf) or [HTML](https://htmlpreview.github.io/?https://github.com/nicolo-tellini/sppComp/blob/main/misc/sppComp.pdf)
+  4) Knit > [PDF](https://github.com/nicolo-tellini/sppComp/blob/main/misc/sppComp.pdf) or [HTML](https://htmlpreview.github.io/?https://github.com/nicolo-tellini/sppComp/blob/main/misc/sppComp.html)
  
  The code is evaluated by default.
  
