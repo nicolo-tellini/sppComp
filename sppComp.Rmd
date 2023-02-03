@@ -48,7 +48,6 @@ USER'S SETTINGS
  library(GenomicRanges) 
  library(data.table) 
  library(ggplot2) 
- library(tidytree) 
 
 BaseDir <- dirname(rstudioapi::getSourceEditorContext()$path)
 ```
