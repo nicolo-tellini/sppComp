@@ -3,15 +3,13 @@
 </p>
 
 © nt & PhD Chiara Vischioni
- 
-:bangbang::bangbang:  PAGE UNDER CONSTRUCTION :bangbang::bangbang:
 
 [![Licence](https://img.shields.io/github/license/nicolo-tellini/sppComp-SGRP5?style=plastic)](https://github.com/nicolo-tellini/S.cerevisiaeData/blob/main/LICENSE)
 [![Release](https://img.shields.io/github/v/release/nicolo-tellini/sppComp-SGRP5?style=plastic)](https://github.com/nicolo-tellini/S.cerevisiaeData/releases/tag/v.1)
 [![release date](https://img.shields.io/github/release-date/nicolo-tellini/sppComp-SGRP5a?color=violet&style=plastic)](https://github.com/nicolo-tellini/S.cerevisiaeData/releases/tag/v.1)
 [![commit](https://img.shields.io/github/last-commit/nicolo-tellini/sppComp-SGRP5?color=yellow&style=plastic)](https://github.com/nicolo-tellini/S.cerevisiaeData/graphs/commit-activity)
 
-# **SppComp: *Saccharomyces* species composition**
+# *Saccharomyces* species composition (sppComp)
 
 An automated modular computational framework for a rapid glympse to the species composition and genomics features of *Saccharomyces* yeasts from large datasets of paired-end illumina reads, adtapt to deal different computational resourses.
 
