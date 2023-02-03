@@ -79,12 +79,6 @@ Both the constructs run the same scripts but while ```sppComp.sh``` allows an ag
  
  The default variables are the same as reported above. 
 
-## Output
-
-<p align="center">
-  <img src="https://github.com/nicolo-tellini/sppComb/blob/main/misc/CBS2834_profile.png" alt="Sublime's custom image" width="1200" height="700"/>
-</p>
-
 ## More about ...
 
 :heavy_check_mark: [The Assemblies](https://github.com/nicolo-tellini/sppComb/blob/main/assemblies.md)
