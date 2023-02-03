@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="183mm"
+   height="247mm"
+   viewBox="0 0 183 247"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (1:1.2.2+202212051550+b0a8486541)"
+   sodipodi:docname="sppComp.logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.55005482"
+     inkscape:cx="2.7270009"
+     inkscape:cy="729.92725"
+     inkscape:window-width="2560"
+     inkscape:window-height="1376"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g3933" />
+  <defs
+     id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3245">
+      <stop
+         style="stop-color:#cca000;stop-opacity:1;"
+         offset="0"
+         id="stop3820" />
+      <stop
+         style="stop-color:#8c9900;stop-opacity:1;"
+         offset="0.39212796"
+         id="stop3926" />
+      <stop
+         style="stop-color:#53a12b;stop-opacity:1;"
+         offset="0.74999982"
+         id="stop3822" />
+      <stop
+         style="stop-color:#007e00;stop-opacity:1;"
+         offset="0.99999976"
+         id="stop3243" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3245"
+       id="linearGradient3247"
+       x1="56.446648"
+       y1="95.54023"
+       x2="97.145096"
+       y2="95.601639"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(0,2.2526808)" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g2046"
+       transform="translate(-15.875004)">
+      <g
+         id="g3114">
+        <g
+           id="g3933">
+          <g
+             id="g3940"
+             inkscape:export-filename="../../../Downloads/test/images/g3940.png"
+             inkscape:export-xdpi="800"
+             inkscape:export-ydpi="800"
+             transform="translate(30.959225,25.283173)">
+            <ellipse
+               style="fill:none;stroke:#004400;stroke-width:0.394374;stroke-dasharray:none;stroke-dashoffset:27.9281;stroke-opacity:1;stop-color:#000000"
+               id="path445"
+               cx="66.173035"
+               cy="98.216827"
+               rx="19.559736"
+               ry="19.471014" />
+            <ellipse
+               style="fill:none;stroke:#004400;stroke-width:0.44;stroke-dasharray:none;stroke-dashoffset:27.9281;stroke-opacity:1;stop-color:#000000"
+               id="path445-4"
+               cx="94.460159"
+               cy="98.216827"
+               rx="11.735287"
+               ry="12.265648" />
+            <rect
+               style="fill:#ffffff;stroke:none;stroke-width:0.472571;stroke-dasharray:none;stroke-dashoffset:27.9281;stroke-opacity:1;stop-color:#000000"
+               id="rect2041"
+               width="53.375351"
+               height="13.299905"
+               x="49.200104"
+               y="91.566872"
+               ry="0" />
+            <text
+               xml:space="preserve"
+               style="font-size:11.2889px;line-height:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;text-decoration-color:#000000;text-anchor:middle;fill:url(#linearGradient3247);fill-opacity:1;stroke:#00ff00;stroke-width:0.04;stroke-dashoffset:27.9281;stop-color:#000000"
+               x="73.974754"
+               y="100.41816"
+               id="text233"><tspan
+                 id="tspan231"
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.2889px;font-family:'Tlwg Mono';-inkscape-font-specification:'Tlwg Mono';fill:url(#linearGradient3247);fill-opacity:1;stroke:none;stroke-width:0.04;stroke-opacity:1"
+                 x="73.974754"
+                 y="100.41816"
+                 sodipodi:role="line">sppComp</tspan></text>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
