@@ -39,6 +39,20 @@ git clone https://github.com/nicolo-tellini/sppComb.git
 cd sppComb
 ```
 
+## Content
+
+:open_file_folder: :
+
+```{bash}
+.
+├── rep
+├── misc
+├── sppComp.Rmd
+├── sppComp.sh
+├── scr
+└── seq
+```
+
 SppComp runner is provided in two different constructs:
 
 - ```sppComp.sh``` : a bash script for CLI use
