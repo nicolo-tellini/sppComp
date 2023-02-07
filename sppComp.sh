@@ -1,8 +1,8 @@
 #!/bin/bash
 
 binsize=10000 # windows size
-nSamples=4 # number of sample to run in parallel (mapping and coverage extraction)
-nThreads=1 # per-sample number of threads
+nSamples=2 # number of sample to run in parallel (mapping and coverage extraction)
+nThreads=2 # per-sample number of threads
 
 # Default: 4 samples single thread (4 threads per time) 
 
