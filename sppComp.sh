@@ -55,4 +55,4 @@ fi
 wait
 
 # plotter 
-/usr/bin/time -v ${BaseDir}/scr/Rscript plot.r ${BaseDir} ${binsize} > ${BaseDir}/logs/plot.out 2> ${BaseDir}/logs/Time.plot.err
+/usr/bin/time -v Rscript ${BaseDir}/scr/plot.r ${BaseDir} ${binsize} > ${BaseDir}/logs/plot.out 2> ${BaseDir}/logs/Time.plot.err
