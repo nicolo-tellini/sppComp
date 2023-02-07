@@ -72,8 +72,8 @@ Move the fastws inside ```./seq/```. The fastqs **must** be gziped and suffixed 
   #!/bin/bash
   
   binsize=10000 # windows size
-  nSamples=4 # number of samples
-  nThreads=1 # per-sample number of threads
+  nSamples=2 # number of samples
+  nThreads=2 # per-sample number of threads
   ```
   2) run 
 
@@ -88,8 +88,8 @@ Move the fastws inside ```./seq/```. The fastqs **must** be gziped and suffixed 
  3) Edit the user's settins 
  ```r
   binsize=10000
-  nSamples=4 # number of samples
-  nThreads=1 # per-sample number of threads 
+  nSamples=2 # number of samples
+  nThreads=2 # per-sample number of threads 
   ```
   4) Knit > [PDF](https://github.com/nicolo-tellini/sppComp/blob/main/misc/sppComp.pdf) or [HTML](https://htmlpreview.github.io/?https://github.com/nicolo-tellini/sppComp/blob/main/misc/sppComp.html)
  
