@@ -60,7 +60,7 @@ add_columns <- function(x){
 # plot the coverage across consecutive windows across chromosomes and species
 # color gradient reflects per-window average mapping quality
 plot_fun <- function(x) {
-  ymax <- median(x[x$meandepth>0,"meandepth"])*4
+  ymax <- median(x[x$meandepth>3,"meandepth"])*4
   plot_list <- ggplot(x,mapping = aes(x=rank_chr,y=meandepth,color=meanmapq)) + 
     geom_line() +
     scale_color_gradient(low = "orange", high = "darkgreen", na.value = NA) +
