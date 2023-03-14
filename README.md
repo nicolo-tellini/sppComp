@@ -96,6 +96,16 @@ Move the fastws inside ```./seq/```. The fastqs **must** be gziped and suffixed 
  The code is evaluated by default.
  
  The default variables are the same as reported above. 
+ 
+## window-based coverage plot
+
+## marker-based coverage plot
+
+## marker-based interactive plot of minor species components
+
+## data interpretation: the case of SNP1
+
+
 
 ## more about ...
 
