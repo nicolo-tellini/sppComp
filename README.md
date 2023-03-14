@@ -103,24 +103,19 @@ Move the fastws inside ```./seq/```. The fastqs **must** be gziped and suffixed 
 
 ## marker-based interactive plot of minor species components
 
-## data interpretation: the case of SNP1 (YIL061C) and the "matryoshka" signal
+## data interpretation: the case of SNP1 (YIL061C) and the "matryoshka" introgressed DNA
 
-It happend to me to inspect a marker-based interactive plot of the minor species components of the *Saccharomyces cerevisiae* alpechin strain named A8 and to identify a spike of coverage against the *Saccharomyces mikatae* assembly (IFO 1815). This seemed somewhat surprising at the beginning by reason of the fact that the spike is located in the middle of a larger introgressed segments inherited from the European *Saccharomyces paradoxus* ("matryoshka" signal)[1]. The snapshot depicts the event: 
+It happend to me to inspect a marker-based interactive plot of the minor species components of the *Saccharomyces cerevisiae* alpechin strain named A8 and to identify a spike of coverage against the *Saccharomyces mikatae* assembly (IFO 1815). This seemed somewhat surprising at the beginning by reason of the fact that the spike is located in the middle of a larger introgressed segments inherited from the European *Saccharomyces paradoxus* ("matryoshka" introgressed DNA)[1]. The snapshot depicts the event: 
 
+My first guess was that the gene underlying the spike (YIL061C alias SNP1) was not present in the *Saccharomyces paradoxus* whole-genome assembly used in the competitive mapping (YPS 138, an American *Saccharomyces paradoxus*) and that, in the absence of a *Saccharomyces paradoxus* copy, the short reads would have mapped against the most similar copy (the copy of *Saccharomyces mikatae*, in this case). But it turned out that the gene function of SNP1 (pre-mRNA maturation) is so conserved that orthologs can be detected up to mammals (SNRNP70 in human). In fact, SNP1 was also present in the assembly of the American *Saccharomyces paradoxus*. 
+By the construstion of the phylogeny we finally observed that the signal we detected was instead due to the fact that IFO 1815 (and all the *Saccharomyces mikatae* strains isolated so far[2]) inherited a SNP1 copy from an Euroasiatic *Saccharomyces paradoxus* (ancestral introgression) so that the copy of SNP1 in the Alpechin A8 (inherited from the European *Saccharomyces paradoxus*) is genetically closer to the copy of IFO 1815 rather than to the American *Saccharomyces paradoxus* YPS 138. This justifying the signal of coverage against the *Saccharomyces mikatae* assembly.  
 
-Question 1 : Is that spike real?
-Answer 1 : Yes, it is!
-
-Question 2 : Is that spike an introgression?
-Answer 2 : Yes, it is! But not in the strain A8
-
-
-
-The take-home message is: given that this pipeline takes advantage of a competitive mapping against whole-genome assemblies we need to keep in mind that the assemblies are moulded by their own evolutionary history and that, this last is not always completely known. 
+#### The take-home message 
+The pipeline takes advantage of a competitive mapping against whole-genome assemblies and, like all the reference-based method, it is reference biased. It is important  keeping in mind that the assemblies are moulded by the evolutionary history of the strain and that this last is not always completely known. We recommend a careful and cautious interpretation of the results obtained with this pipeline that have to be considered preliminary and not definitive as well as to provide further evidencies in favour of the conclusions you are drawing.   
 
 
 [1] note: the alpechin *Saccharomyces cerevisiae* strains are known to be permeated by *Saccharomyces paradoxus* DNA. *Tellini et al. 2023* and *Pontes et al. 2019*  
-
+[2] find more about this here 
 ## more about ...
 
 :warning:  [The Assemblies](https://github.com/nicolo-tellini/sppComb/blob/main/assemblies.md)
