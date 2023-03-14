@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/nicolo-tellini/sppComp/blob/main/misc/g3940.png" alt="sppComb logo" width="450" height="300"/> 
+  <img src="https://github.com/nicolo-tellini/sppComp/blob/main/misc/g1154.png" alt="sppComb logo" width="450" height="300"/> 
 </p>
 
 © logo nt & Chiara Vischioni
