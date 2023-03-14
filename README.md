@@ -103,9 +103,9 @@ Move the fastws inside ```./seq/```. The fastqs **must** be gziped and suffixed 
 
 ## marker-based interactive plot of minor species components
 
-## data interpretation: the case of SNP1 (YIL061C) and the matryoshka effect
+## data interpretation: the case of SNP1 (YIL061C) and the "matryoshka" signal
 
-It happend to me to inspect a marker-based interactive plot of the minor species components of the **Saccharomyces cerevisiae** alpechin strain named A8 and to identify a spike of coverage against the **Saccharomyces mikatae** assembly (IFO 1815). This seemed somewhat surprising at the beginning by reason of the fact that, the spike is located in the middle of a much larger introgressed segments inherited by the European **Saccharomyces paradoxus** (from here the matryoshka effect)[1]. The snapshot of the interactive plot depicts the event: 
+It happend to me to inspect a marker-based interactive plot of the minor species components of the *Saccharomyces cerevisiae* alpechin strain named A8 and to identify a spike of coverage against the *Saccharomyces mikatae* assembly (IFO 1815). This seemed somewhat surprising at the beginning by reason of the fact that, the spike is located in the middle of a much larger introgressed segments inherited by the European *Saccharomyces paradoxus* ("matryoshka signal")[1]. The snapshot of the interactive plot depicts the event: 
 
 
 Question 1 : Is that spike real?
