@@ -126,6 +126,9 @@ R libraries
 * [GenomicRanges](https://www.bioconductor.org/packages/release/bioc/html/GenomicRanges.html)
 * [data.table](https://rdocumentation.org/packages/data.table/versions/1.14.2)
 * [ggplot2](https://ggplot2.tidyverse.org/)
+* [Polychrome](https://www.rdocumentation.org/packages/Polychrome/versions/1.5.1)
+* [stringi](https://www.rdocumentation.org/packages/stringi/versions/1.7.12)
+* [dplyr](https://www.rdocumentation.org/packages/dplyr/versions/1.0.10)
 * [rstudioapi](https://rstudio.github.io/rstudioapi/) [if you use the Rmd only]
 
 ## Citations
