@@ -21,6 +21,12 @@ The fasta genome is binnded in R by vectorialized functions from <code>GenomicRa
 
 The data about the coverage are recovered with <code>samtools coverage</code>, introduced in version 1.10. Compared to <code>samtools depth</code>, <code>samtools coverage</code> computes statitcs on the depth at each specified region and returns the results on a tabulated text. Altought at the time I am writing this lines, <code>samtools coverage</code> does not support <code>bed</code> files nor custom outputs these improvements have been suggested and taken in consideration by samtools' guys ([1662](https://github.com/samtools/samtools/issues/1662)). As soon as available, they will be implementend in the pipeline, overcoming the necessity to run the command for each single region. 
 
+<code>samtools depth</code> extracts the coverage for the marker positions across the multifasta. 
+
+# Marker parsing 
+
+Tha marker parsing takes advantage of diffent stategies based on libraries that provide vectorialized functions to deal with ten millions rows <code>data.table</code>s. Diffent strategies have been microbenchmarked line by line by mean <code>microbenchmark</code> and the code repeatedly profiled by mean <code>profvis</code> in an attempt to speedup the flow without overload the RAM. 
+
 # Plotting
 
 The plots are generated in R with <code>ggplot2</code>. The script makes large use of functional programming as well as base commands to prepare the <code>data.frame</code> and plotting. All the <code>data.frame</code> are preprocessed by <code>fread</code> before the allocation and, subsequently, stored in a single list. This allows for a one-shot solution that reduces dramatically the run time, but it comes with an higher consume of RAM memory. For example, processing CBS 2834 required around 12 MB, while processing 50 copies of the same sample 0.2GB (200 MB).
