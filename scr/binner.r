@@ -43,14 +43,18 @@ chrSizes <- width(mygenome)
 names(chrSizes) <- names(mygenome)
 
 # generate the bins
-bins <- as.data.frame(tileGenome(chrSizes, tilewidth=binsize, cut.last.tile.in.chrom=T))
+bins <- tileGenome(chrSizes, tilewidth=binsize, cut.last.tile.in.chrom=T)
+
+setDT(bins)
+
+# set column names
+setnames(bins, c("chrom", "start", "end"))
+
+# remove rows with NA
+bins <- bins[!is.na(start)]
 
 # remove strand and width columns
-bins$strand <- NULL
-
-bins$width <- NULL
-
-bins <- bins[!is.na(bins[,1]),]
+bins[, c("strand", "width") := NULL]
 
 # save the table as BED file in ./rep 
 fwrite(x = bins,file =paste0(BaseDir,"/rep/binnedGenome.",binsize,".bed"),append = F,quote = F,sep = "\t",row.names = F,col.names = F)
