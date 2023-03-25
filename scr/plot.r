@@ -57,6 +57,19 @@ add_columns <- function(x){
   return(df_temp)
 }
 
+# For testing
+#add_columns <- function(x){ 
+#  x[, `:=` (   species = factor(sapply(strsplit(rname, "_"), "[[", 2), levels = refs),   
+#               chr = factor(sapply(strsplit(rname, "_"), "[[", 1), levels = allChr),    
+#               diff = (startpos + endpos) / 2,    
+#               rname = factor(rname, levels = unique(rname))  )]
+#  
+#  setorder(x, rname, startpos)
+#  x[, rank_chr := seq_len(.N), by = rname]
+  
+#  return(x)
+#}
+
 # plot the coverage across consecutive windows across chromosomes and species
 # color gradient reflects per-window average mapping quality
 plot_fun <- function(x) {
@@ -98,6 +111,10 @@ df <- lapply(cov_files,function(x) fread(cmd = paste0("cut -f1,2,3,7,9,10 ",base
 # rename list elements
 strains <- sapply(strsplit(cov_files,"\\."),"[[",1)
 names(df) <- strains
+             
+# for testing 
+# names(df) <- sapply(strsplit(cov_files,"\\."),"[[",1)
+#
 
 # rename columns of each data.frame
 cols <- c("rname","startpos","endpos","meandepth","meanmapq","strain")
