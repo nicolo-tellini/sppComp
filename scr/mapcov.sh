@@ -72,6 +72,9 @@ do
     
     # At the time of writing, samtools coverage does not accept BED file as input.
     # The while loop below is a turn around.
+    ## For testing 
+    ## cat regions.bed | xargs -P 4 -I {} sh -c 'samtools coverage -r {} file.bam > coverage_{}.txt'
+    
     while read -r line
     do
       
