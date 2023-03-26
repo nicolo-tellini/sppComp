@@ -111,8 +111,7 @@ My first guess was that the gene underlying the spike (YIL061C alias SNP1) was n
 By the construction of the phylogeny we finally observed that the signal we detected was instead due to the fact that IFO 1815 (and all the *Saccharomyces mikatae* strains isolated so far[2]) inherited a SNP1 copy from an Euroasiatic *Saccharomyces paradoxus* (ancestral introgression) so that the copy of SNP1 in the Alpechin A8 (inherited from the European *Saccharomyces paradoxus*) is genetically closer to the copy of IFO 1815 rather than to the American *Saccharomyces paradoxus* YPS 138. This justifying the signal of coverage against the *Saccharomyces mikatae* assembly.  
 
 #### The take-home message 
-The pipeline takes advantage of a competitive mapping against whole-genome assemblies and, like all the reference-based method, it is reference biased. It is important  keeping in mind that the assemblies are molded by the evolutionary history of the strain and that this last is not always completely known. We recommend a careful and cautious interpretation of the results obtained. These have to be considered preliminary and not definitive (especially during the evaluation of the minor species components). In addition, we invite the user to provide further evidence in favor of the conclusions drawed by using complementary approaches. 
-
+The pipeline employs a competitive mapping strategy against whole-genome assemblies, which, akin to all reference-based methods, is subject to reference bias. Therefore, caution should be exercised when interpreting the results derived from genomic assemblies, and complementary approaches should be employed to provide additional evidence and validation.
 
 [1] note: the alpechin *Saccharomyces cerevisiae* strains are known to be permeated by *Saccharomyces paradoxus* DNA. *Tellini et al. 2023* and *Pontes et al. 2019*  
 [2] find more about this here 
