@@ -109,6 +109,8 @@ If you ```grep ">" human.genome4.fa``` you can see there are not nor scaffolds o
  
  ```{bash}
  rm human.genome.fa human.genome2.fa human.genome3.fa human.genome4.fa 
+ 
+ mv human.genome5.fa human.genome.fa
  ```
 7. ```grep ">" human.genome.fa``` will show the following output:
 
