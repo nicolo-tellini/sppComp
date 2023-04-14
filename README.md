@@ -64,7 +64,7 @@ Both the constructs run the same scripts but while ```sppComp.sh``` allows an ag
 
 Example with [human genome](https://www.ncbi.nlm.nih.gov/data-hub/genome/GCF_000001405.40/) GRCh38.p14.
 
-1. rename the fasta as [ASSEMBLYNAME].genome.fa
+1. rename the fasta with a TAG, like human:
 
  ```{bash}
  mv GCF_000001405.40_GRCh38.p14_genomic.fna human.genome.fa
@@ -141,7 +141,9 @@ If you ```grep ">" human.genome4.fa``` you can see there are not nor scaffolds o
  >chrY_human
  >chrMT_human
  ```
-
+ 
+ 8. repeat the same steps for all the assemblies.
+ 
 ## the fastqs
 
 Move the fastws inside ```./seq/```. The fastqs **must** be gziped and suffixed \_1.fastq.gz and \_2.fastq.gz.
