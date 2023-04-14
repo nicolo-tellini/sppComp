@@ -62,50 +62,62 @@ Both the constructs run the same scripts but while ```sppComp.sh``` allows an ag
 
 ## Assembly preparation from CLI
 
-Example with [human genome](https://www.ncbi.nlm.nih.gov/data-hub/genome/GCF_000001405.40/) GRCh38.p14.
+Example with the [human genome](https://www.ncbi.nlm.nih.gov/data-hub/genome/GCF_000001405.40/) GRCh38.p14.
 
-1. rename the fasta with a TAG, like human:
+This example applies for all the assemblies downloaded from the NCBI.
 
- ```{bash}
+1. rename the FASTA with a meaningfull [TAG], like human:
+
+```{bash}
  mv GCF_000001405.40_GRCh38.p14_genomic.fna human.genome.fa
- ```
+```
 If you ```grep ">" human.genome.fa``` you can see there are scaffolds and PATCHES, we do not want them.
 
-2. move the sequences at the same line of the corrsponding fasta entries. [Pierre Lindenbaum](https://www.biostars.org/u/30/)'s solution:
+2. move the sequences at the same line of the corrsponding entries. [Pierre Lindenbaum](https://www.biostars.org/u/30/)'s solution:
 
- ```{bash}
- awk '/^>/ {printf("%s%s\t",(N>0?"\n":""),$0);N++;next;} {printf("%s",$0);} END {printf("\n");}' < human.genome.fa > human.genome2.fa
- ```
-3. grep out scaffolds and PATCHES
+  ```{bash}
+  awk '/^>/ {printf("%s%s\t",(N>0?"\n":""),$0);N++;next;} {printf("%s",$0);} END {printf("\n");}' < human.genome.fa > human.genome2.fa
+  ```
+3. remove scaffolds and PATCHES
 
  ```{bash}
  grep -Ev "scaffold|PATCHES" human.genome2.fa > human.genome3.fa
  ```
 
-4. move the sequences back one line below the entries
+4. move the sequences one line below the entries
 
  ```{bash}
  cat human.genome3.fa | tr '\t' '\n' > human.genome4.fa
  ```
-If you ```grep ">" human.genome4.fa``` you can see there are not nor scaffolds or PATCHES anymore.
+ If you ```grep ">" human.genome4.fa``` you can see there are not nor scaffolds or PATCHES anymore.
 
-5. rename the fasta entries. This can be done in several different ways (as all the steps above). What follow is an example that work fine with the name of the entries in human. At this step we need to respect the naming format: chr[...]_[TAG]. Keeping in mind that the last three are X, Y and MT we can replace chromosomes names with numbers:
-
- ```{bash}
- tr -d '[:blank:]' < human.genome4.fa > human.genome5.fa
- k=1
- for j in $(grep ">" human.genome5.fa)
- do
- newname=$(echo ">chr"$k"_human")
- sed -i "s+$j+$newname+g" human.genome5.fa
- ((k=k+1))
- done
- sed -i 's+>chr23_human+>chrX_human+g' human.genome5.fa 
- sed -i 's+>chr24_human+>chrY_human+g' human.genome5.fa 
- sed -i 's+>chr25_human+>chrMT_human+g' human.genome5.fa 
- ```
+5. rename the fasta entries.
  
-6. remove intermediate files and rename human.genome5.fa as human.genome.fa
+   We need to respect the naming format for chromosome names: ```chr[NUM/LETT. or both]_[TAG]```. 
+   This step need to be adapted to different asseblies as NCBI does not seem to follow a standard for naming FASTA entries.
+ 
+   5a. remove white spaces from the entry
+   ```{bash}
+   tr -d '[:blank:]' < human.genome4.fa > human.genome5.fa
+   ```
+   5b. replace the entry names:
+   ```
+   k=1
+   for j in $(grep ">" human.genome5.fa)
+   do
+   newname=$(echo ">chr"$k"_human")
+   sed -i "s+$j+$newname+g" human.genome5.fa
+   ((k=k+1))
+   done
+   ```
+   5c. rename ```chr23_human```, ```chr24_human``` and ```chr25_human``` as ```chrX_human```, ```chrY_human``` and ```chrMT_human```.
+   ```
+   sed -i 's+>chr23_human+>chrX_human+g' human.genome5.fa 
+   sed -i 's+>chr24_human+>chrY_human+g' human.genome5.fa 
+   sed -i 's+>chr25_human+>chrMT_human+g' human.genome5.fa 
+   ```
+ 
+6. remove intermediate files and rename ```human.genome5.fa``` as ```human.genome.fa```
  
  ```{bash}
  rm human.genome.fa human.genome2.fa human.genome3.fa human.genome4.fa 
