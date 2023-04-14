@@ -60,6 +60,86 @@ SppComp runner is provided in two different constructs:
 
 Both the constructs run the same scripts but while ```sppComp.sh``` allows an agile editing from CLI it remains more suitable for large datasets on a server computer. On the other hand, ```sppComp.Rmd``` is recommended for people that prefer the use of the GUI. ```sppComp.Rmd``` ends with the generation of a report (HTML/PDF) which better fit with a run of a few samples.
 
+## Assembly preparation from CLI
+
+Example with [human genome](https://www.ncbi.nlm.nih.gov/data-hub/genome/GCF_000001405.40/) GRCh38.p14.
+
+1. rename the fasta as [ASSEMBLYNAME].genome.fa
+
+ ```{bash}
+ mv GCF_000001405.40_GRCh38.p14_genomic.fna human.genome.fa
+ ```
+If you ```grep ">" human.genome.fa``` you can see there are scaffolds and PATCHES, we do not want them.
+
+2. move the sequences at the same line of the corrsponding fasta entries. [Pierre Lindenbaum](https://www.biostars.org/u/30/)'s solution:
+
+ ```{bash}
+ awk '/^>/ {printf("%s%s\t",(N>0?"\n":""),$0);N++;next;} {printf("%s",$0);} END {printf("\n");}' < human.genome.fa > human.genome2.fa
+ ```
+3. grep out scaffolds and PATCHES
+
+ ```{bash}
+ grep -Ev "scaffold|PATCHES" human.genome2.fa > human.genome3.fa
+ ```
+
+4. move the sequences back one line below the entries
+
+ ```{bash}
+ cat human.genome3.fa | tr '\t' '\n' > human.genome4.fa
+ ```
+If you ```grep ">" human.genome4.fa``` you can see there are not nor scaffolds or PATCHES anymore.
+
+5. rename the fasta entries. This can be done in several different ways (as all the steps above). What follow is an example that work fine with the name of the entries in human. At this step we need to respect the naming format: chr[...]_[TAG]. Keeping in mind that the last three are X, Y and MT we can replace chromosomes names with numbers:
+
+ ```{bash}
+ tr -d '[:blank:]' < human.genome4.fa > human.genome5.fa
+ k=1
+ for j in $(grep ">" human.genome5.fa)
+ do
+ newname=$(echo ">chr"$k"_human")
+ sed -i "s+$j+$newname+g" human.genome5.fa
+ ((k=k+1))
+ done
+ sed -i 's+>chr23_human+>chrX_human+g' human.genome5.fa 
+ sed -i 's+>chr24_human+>chrY_human+g' human.genome5.fa 
+ sed -i 's+>chr25_human+>chrMT_human+g' human.genome5.fa 
+ ```
+ 
+6. remove intermediate files and rename human.genome5.fa as human.genome.fa
+ 
+ ```{bash}
+ rm human.genome.fa human.genome2.fa human.genome3.fa human.genome4.fa 
+ ```
+7. ```grep ">" human.genome.fa``` will show the following output:
+
+ ```{bash}
+ >chr1_human
+ >chr2_human
+ >chr3_human
+ >chr4_human
+ >chr5_human
+ >chr6_human
+ >chr7_human
+ >chr8_human
+ >chr9_human
+ >chr10_human
+ >chr11_human
+ >chr12_human
+ >chr13_human
+ >chr14_human
+ >chr15_human
+ >chr16_human
+ >chr17_human
+ >chr18_human
+ >chr19_human
+ >chr20_human
+ >chr21_human
+ >chr22_human
+ >chrX_human
+ >chrY_human
+ >chrMT_human
+ ```
+
 ## the fastqs
 
 Move the fastws inside ```./seq/```. The fastqs **must** be gziped and suffixed \_1.fastq.gz and \_2.fastq.gz.
