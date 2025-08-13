@@ -1,0 +1,18 @@
+#!/bin/bash
+
+source config
+
+# Default: 4 samples single thread (4 threads per time) 
+
+/usr/bin/time -v bash ${basedir}/scr/init ${basedir} 
+
+## binner: generate the bins; use it only if you want tocreate a new bin.bed file in rep 
+## /usr/bin/time -v Rscript ${basedir}/scr/binner.r ${basedir} ${binsize} > ${basedir}/log/binner.out 2> ${basedir}/log/binner.err
+
+## mapping and coverage
+## NOTE : the per-window average coverage is computed by samtools coverage with the following options: -q5 -Q20 --ff UNMAP,SECONDARY,QCFAIL,DUP
+## Feel free to change if nedeed. You can find the command in the script ./scr/mapcov.sh at line .
+/usr/bin/time -v bash ${basedir}/scr/mapcov ${basedir} ${nSamples} ${nThreads}  > ${basedir}/log/mapcov.out 2> ${basedir}/log/mapcov.err
+
+## multi-sample window-based coverage plot 
+/usr/bin/time -v Rscript ${basedir}/scr/Wplot.r ${basedir} ${binsize} > ${basedir}/log/plot.out 2> ${basedir}/log/plot.err

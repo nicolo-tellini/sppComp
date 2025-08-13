@@ -1,0 +1,71 @@
+#!/bin/bash
+
+source config 
+
+mapcov() { 
+ 
+ source config
+ inds=$1
+ ## check the sample was already processed
+ cps=$(grep -w $inds $cpsdir/cps.txt)
+ 
+  ## if this is not the case proceed 
+  if [ -z "$cps" ]
+  then
+    
+   ## check for the presence of paired files 
+   fq_1=$(find $basedir/seq -name $inds"_1.fastq.gz")
+   fq_2=$(find $basedir/seq -name $inds"_2.fastq.gz")
+    
+   ## path to the assembly
+   indr=$(find $basedir/rep -name saccharomyces_all_assemblies.fa)
+   ## ID assembly
+   refID=$(basename $indr | cut -d "." -f 1)
+    
+   ## run BWA according to the fact the reads are either single or paired end 
+   if [ ! -z "$revers" ]
+   then
+   minimap2 -t $nThreads -a -x sr $indr $fq_1 $fq_2 -o $mapdir/$inds".sam" 2> /dev/null
+
+   else
+   minimap2 -t $nThreads -a -x sr $indr $fq_1 -o $mapdir/$inds".sam" 2> /dev/null
+   
+   fi
+    
+   wait
+
+   ## samtools workflow as suggested in the documentation (http://www.htslib.org/workflow/fastq.html)
+   samtools fixmate -z all -Obam,level=1 -m $mapdir/$inds.sam $mapdir/$inds.fix.bam   
+   rm -r $mapdir/$inds.sam
+   samtools sort -l 1 -@$nThreads $mapdir/$inds.fix.bam -T $basedir/tmp/$inds.tmp.bam -o $mapdir/$inds.fix.srt.bam	 
+   rm   $mapdir/$inds.fix.bam
+   samtools markdup -Obam,level=1 $mapdir/$inds.fix.srt.bam $mapdir/$inds.fix.srt.mrk.bam	
+   rm  $mapdir/$inds.fix.srt.bam
+   samtools view $mapdir/$inds.fix.srt.mrk.bam -o $mapdir/$inds.$refID.bam
+   rm $mapdir/$inds.fix.srt.mrk.bam
+   samtools index -@ 2 $mapdir/$inds.$refID".bam"
+          
+   FILE=$basedir/cov/$inds.binned.cov
+   if test -f "$FILE"; then
+     echo "$FILE exists."
+     rm $basedir/cov/$inds.binned.cov
+     echo $FILE "was removed and regenerated"
+   fi
+ 
+   cat $repdir"/binnedGenome.10000.bed" | awk '{print $1":"$2"-"$3}' | xargs -P 2 -I {} samtools coverage -q5 -Q20 --ff UNMAP,SECONDARY,QCFAIL,DUP -r {} $mapdir/$inds.$refID.bam | grep -v "#" >>  $basedir/cov/$inds.binned.cov
+    
+   gawk -i inplace -v var="$inds" -F'\t' 'BEGIN{OFS=FS}{print $0 OFS var}' $basedir/cov/$inds".binned.cov"
+   
+   ## append strain name to ./cps/cps.txt
+   echo $inds >> $cpsdir/cps.txt
+    
+   ### uncomment the line below if you want to remove the BAMs and indeces
+   ### rm $mapdir/$inds.$refID.bam $mapdir/$inds.$refID.bam.bai
+   fi
+}
+
+##export function
+export -f mapcov
+
+## parallelize 
+find $basedir/seq -type f -name "*_1.fastq.gz" | rev | cut -d"/" -f1 | rev | cut -d"_" -f1 | sort | uniq | parallel -j $nSamples mapcov

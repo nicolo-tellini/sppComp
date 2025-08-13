@@ -1,0 +1,40 @@
+
+###########################################################
+#                   CONFIGURATION FILE                    #
+#                                                         #
+# This configuration file sets parameters for sample      #
+# processing and analysis. Modify these values according  #
+# to your project's requirements.                         #
+#                                                         #
+#                                			    #
+# Contact me at nicolo.tellini.2@gmail.com		    #
+###########################################################
+
+##########################################################
+#		     USER VARIABLE		   #
+##########################################################
+
+     		 
+nSamples=2 # number of sample to run in parallel (mapping and coverage extraction)
+nThreads=8 # per-sample number of threads
+binsize=10000 # windows size
+
+##########################################################
+#	    DO NOT CHANGE THE VARIABLE BELOW            #
+##########################################################
+
+basedir=$(dirname "$(pwd)")
+
+seqdir="$basedir/seq"
+
+logdir="$basedir/log" 
+
+repdir="$basedir/rep"
+
+mapdir="$basedir/map"
+
+cpsdir="$basedir/cps"
+
+covdir="${basedir}/cov"
+
+outdir="${basedir}/out"
