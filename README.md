@@ -66,7 +66,7 @@ Both the constructs run the same scripts but while ```sppComp.sh``` allows an ag
 
 :warning: [The Implementation](https://github.com/nicolo-tellini/sppComb/blob/main/deepintothecode.md)
 
-:warning: [Testing](https://github.com/nicolo-tellini/sppComb/blob/main/testing.md)
+:heavy_check_mark: [Testing](https://github.com/nicolo-tellini/sppComb/blob/main/testing.md)
 
 :warning:  [Organisation of the directories](https://github.com/nicolo-tellini/sppComb/blob/main/dirtree.md)
 
