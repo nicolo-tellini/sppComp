@@ -75,21 +75,19 @@ Both the constructs run the same scripts but while ```sppComp.sh``` allows an ag
 * v1.0.0 Released in 2023
 
 ## Dependencies
-
-Software
-
-* [samtools](https://github.com/samtools/samtools/releases) v1.10 or higher
-* [bwa](https://github.com/lh3/bwa)
-* [gawk](https://www.gnu.org/software/gawk) v5.0.0 or higher
-
-R libraries
-* [Biostrings](https://www.bioconductor.org/packages/release/bioc/html/Biostrings.html)
-* [GenomicRanges](https://www.bioconductor.org/packages/release/bioc/html/GenomicRanges.html)
-* [data.table](https://rdocumentation.org/packages/data.table/versions/1.14.2)
-* [ggplot2](https://ggplot2.tidyverse.org/)
-* [Polychrome](https://www.rdocumentation.org/packages/Polychrome/versions/1.5.1)
-* [stringi](https://www.rdocumentation.org/packages/stringi/versions/1.7.12)
-* [dplyr](https://www.rdocumentation.org/packages/dplyr/versions/1.0.10)
-* [rstudioapi](https://rstudio.github.io/rstudioapi/) [if you use the Rmd only]
+```{bash}
+mamba create -n sppcomp \
+    minimap2=2.28 \
+    samtools=1.21 \
+    gawk=5.3.1 \
+    parallel=20240722 \
+    r-base=4.4.1 \
+    r-ggplot2=3.5.2 \
+    r-data.table=1.15.4 \
+    r-tidyverse=2.0.0 \
+    bioconductor-biostrings=2.72.1 \
+    bioconductor-genomicranges=1.56.1 \
+    -c conda-forge -c bioconda
+```
 
 ## Citations
