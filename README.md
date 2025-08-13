@@ -85,8 +85,8 @@ mamba create -n sppcomp \
     r-ggplot2=3.5.2 \
     r-data.table=1.15.4 \
     r-tidyverse=2.0.0 \
-    bioconductor-biostrings=2.72.1 \
-    bioconductor-genomicranges=1.56.1 \
+    bioconductor-biostrings=2.74.0 \
+    bioconductor-genomicranges=1.58.0 \
     -c conda-forge -c bioconda
 ```
 
