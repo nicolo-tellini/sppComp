@@ -4,7 +4,7 @@ source config
 
 # Default: 4 samples single thread (4 threads per time) 
 
-/usr/bin/time -v bash ${basedir}/scr/init ${basedir} 
+/usr/bin/time -v bash ${basedir}/scr/init 
 
 ## binner: generate the bins; use it only if you want tocreate a new bin.bed file in rep 
 ## /usr/bin/time -v Rscript ${basedir}/scr/binner.r ${basedir} ${binsize} > ${basedir}/log/binner.out 2> ${basedir}/log/binner.err
