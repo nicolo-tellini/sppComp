@@ -88,8 +88,10 @@ mamba create -n sppcomp \
     bioconductor-biostrings=2.74.0 \
     bioconductor-genomicranges=1.58.0 \
     -c conda-forge -c bioconda
+```
+Activate the environment:
 
-
+```{bash}
 mamba activate sppcomp
 ```
 
