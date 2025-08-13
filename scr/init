@@ -1,6 +1,6 @@
 #!/bin/bash
 
-basedir=$1
+source config
 
 # check logs folder
 if [[ ! -d ${basedir}/log ]]; then mkdir ${basedir}/log; fi
@@ -8,6 +8,7 @@ if [[ ! -d ${basedir}/map ]]; then mkdir ${basedir}/map; fi
 if [[ ! -d ${basedir}/cps ]]; then mkdir ${basedir}/cps; fi
 if [[ ! -d ${basedir}/cov ]]; then mkdir ${basedir}/cov; fi
 if [[ ! -d ${basedir}/out ]]; then mkdir ${basedir}/out; fi
+
 # TXT Checkpoint
 FILE=${basedir}/cps/cps.txt
 if test -f ${FILE}; then
@@ -16,3 +17,5 @@ else
 touch ${FILE}
 echo "${FILE} created."
 fi
+
+zcat $repdir/ass/* $repdir/saccharomyces_all_assemblies.fa
