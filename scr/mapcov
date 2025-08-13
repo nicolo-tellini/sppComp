@@ -52,7 +52,7 @@ mapcov() {
      echo $FILE "was removed and regenerated"
    fi
  
-   cat $repdir"/binnedGenome.10000.bed" | awk '{print $1":"$2"-"$3}' | xargs -P 2 -I {} samtools coverage -q5 -Q20 --ff UNMAP,SECONDARY,QCFAIL,DUP -r {} $mapdir/$inds.$refID.bam | grep -v "#" >>  $basedir/cov/$inds.binned.cov
+   cat $repdir"/binnedGenome."$binsize".bed" | awk '{print $1":"$2"-"$3}' | xargs -P 2 -I {} samtools coverage -q5 -Q20 --ff UNMAP,SECONDARY,QCFAIL,DUP -r {} $mapdir/$inds.$refID.bam | grep -v "#" >>  $basedir/cov/$inds.binned.cov
     
    gawk -i inplace -v var="$inds" -F'\t' 'BEGIN{OFS=FS}{print $0 OFS var}' $basedir/cov/$inds".binned.cov"
    
