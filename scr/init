@@ -18,4 +18,4 @@ touch ${FILE}
 echo "${FILE} created."
 fi
 
-zcat $repdir/ass/* $repdir/saccharomyces_all_assemblies.fa
+zcat $repdir/ass/* > $repdir/saccharomyces_all_assemblies.fa
