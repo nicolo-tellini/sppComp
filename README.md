@@ -96,3 +96,4 @@ mamba activate sppcomp
 ```
 
 ## Citations
+Please, if you use this pipeline, cite this repo.
