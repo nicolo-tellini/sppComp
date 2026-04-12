@@ -112,11 +112,15 @@ CFS an high coverage 3n S. cerevisiae sample with aneuploidies (+1 chrII; -1 chr
 
 <img width="1566" height="1056" alt="Screenshot from 2026-04-12 15-20-42" src="https://github.com/user-attachments/assets/2bd5aa4b-3038-4e54-9f99-3f2e1a7189d4" />
 
-<img width="1566" height="1056" alt="Screenshot from 2026-04-12 15-21-39" src="https://github.com/user-attachments/assets/26da7df5-2911-4f5c-909a-9810beee21f6" />
+<img width="1576" height="1052" alt="Screenshot from 2026-04-12 15-35-12" src="https://github.com/user-attachments/assets/95d605d7-873c-41e1-a741-a3e5732482b2" />
+
 
 CBS 2834 a mid coverage 3n S.cer x S. kud x S.uva sample with complex aneuploidies and species combinations.
 
-<img width="1566" height="1056" alt="Screenshot from 2026-04-12 15-22-27" src="https://github.com/user-attachments/assets/63e59ff8-bf08-4c29-a63e-b87301fbe574" />
+<img width="1566" height="1056" alt="Screenshot from 2026-04-12 15-25-11" src="https://github.com/user-attachments/assets/ea64af8d-356e-484a-abb1-c51b0a20a3ca" />
+
+<img width="1576" height="1052" alt="Screenshot from 2026-04-12 15-33-18" src="https://github.com/user-attachments/assets/1e5fdeb0-90ea-47be-b1ad-cfc37a72c31b" />
+
 
 
 ## Citations
