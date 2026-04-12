@@ -9,6 +9,17 @@
 [![release date](https://img.shields.io/github/release-date/nicolo-tellini/sppComp-SGRP5?color=violet&style=plastic)](https://github.com/nicolo-tellini/sppComp/releases/tag/v.1.0.0)
 [![commit](https://img.shields.io/github/last-commit/nicolo-tellini/sppComp-SGRP5?color=yellow&style=plastic)](https://github.com/nicolo-tellini/sppComp/graphs/commit-activity)
 
+>[!NOTE]
+> NEW:
+>
+> Added the moda of the coverage to better visualize coverage changes across the species;
+>
+> Reduce the y limit value to better enphasize diffences now 2.5 x median value excluding bin with less 5X;
+>
+> Added, in an experimental way, a density plot alongside the coverage plot, to complement coverge visualization;
+>
+>> In the density plot, the black lines show the distribution of sequencing coverage for each chromosome within each species across windows. The solid blue line marks the main coverage peak for that chromosome, the dashed green line (if present) marks a second coverage peak indicating an additional group of regions with different coverage (possibly suggesting mixed signals emerging, for example, from complex aneuploidy, like chromosome III (see below)), and the dashed red line shows the overall coverage level for the entire species as a baseline. By comparing these lines, you can see whether a chromosome behaves like the rest of the genome (blue ≈ red) or deviates from it (blue shifted), and whether there is evidence of multiple coverage states within the same chromosome.
+
 ## *Saccharomyces* species composition (sppComp)
 
 An automated modular computational framework for a rapid glympse to the species composition and genomics features of *Saccharomyces* yeasts from large datasets of paired-end illumina reads, adtapt to deal different computational resourses.
