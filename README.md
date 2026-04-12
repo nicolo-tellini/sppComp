@@ -18,7 +18,7 @@
 >
 > Added, in an experimental way, a density plot alongside the coverage plot, to complement coverge visualization;
 >
->> In the density plot, the black lines show the distribution of sequencing coverage for each chromosome within each species across windows. The solid blue line marks the main coverage peak for that chromosome, the dashed green line (if present) marks a second coverage peak indicating an additional group of regions with different coverage (possibly suggesting mixed signals emerging, for example, from complex aneuploidy, like chromosome III (see below)), and the dashed red line shows the overall coverage level for the entire species as a baseline. By comparing these lines, you can see whether a chromosome behaves like the rest of the genome (blue ≈ red) or deviates from it (blue shifted), and whether there is evidence of multiple coverage states within the same chromosome.
+>> In the density plot, the black lines show the distribution of sequencing coverage for each chromosome within each species across windows. The solid blue line marks the main coverage peak for that chromosome, the dashed green line (if present) marks a second coverage peak indicating an additional group of regions with different coverage (possibly suggesting mixed signals emerging, for example, from complex aneuploidy, like chromosome III (see below section examples)), and the dashed red line shows the overall coverage level for the entire species as a baseline. By comparing these lines, you can see whether a chromosome behaves like the rest of the genome (blue ≈ red) or deviates from it (blue shifted), and whether there is evidence of multiple coverage states within the same chromosome.
 
 ## *Saccharomyces* species composition (sppComp)
 
