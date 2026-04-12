@@ -147,7 +147,12 @@ plot_density_cov <- function(x, binsize, sample_name) {
   
   dt5 <- as.data.table(x)[is.finite(meandepth) & meandepth > 5]  # filter once
   
-  dt5_plot <- dt5
+  dt5_plot <- dt5[, {  # remove extreme outliers per species × chr
+    q1 <- quantile(meandepth, 0.25, na.rm = TRUE)
+    q3 <- quantile(meandepth, 0.75, na.rm = TRUE)
+    iqr <- q3 - q1
+    .SD[meandepth >= (q1 - 1.5 * iqr) & meandepth <= (q3 + 1.5 * iqr)]
+  }, by = .(species, chr)]
   
   global_dt <- dt5_plot[, .(x = mode1(meandepth), line_type = "Global species mode"), by = species]
   peaks_dt <- dt5_plot[, top2_peaks(meandepth), by = .(species, chr)]
@@ -230,8 +235,9 @@ dev.off()
 
 # density  plot distribution  
 plotPath <- file.path(paste0(outDir,"/all_strains.densityplot.pdf")) 
-pdf(file = plotPath, width = 12, height = 8)  
-mapply(function(x, n) {
-  print(plot_density_cov(x, binsize, n))
-}, df, names(df))  
+pdf(file = plotPath, width = 12, height = 8)
+for (i in seq_along(df)) {
+  p <- plot_density_cov(df[[i]], binsize, names(df)[i])
+  print(p)
+}
 dev.off()
