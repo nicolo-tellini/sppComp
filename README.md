@@ -119,8 +119,7 @@ CBS 2834 a mid coverage 3n S.cer x S. kud x S.uva sample with complex aneuploidi
 
 <img width="1566" height="1056" alt="Screenshot from 2026-04-12 15-25-11" src="https://github.com/user-attachments/assets/ea64af8d-356e-484a-abb1-c51b0a20a3ca" />
 
-<img width="1576" height="1052" alt="Screenshot from 2026-04-12 15-33-18" src="https://github.com/user-attachments/assets/1e5fdeb0-90ea-47be-b1ad-cfc37a72c31b" />
-
+<img width="1576" height="1052" alt="Screenshot from 2026-04-12 15-44-51" src="https://github.com/user-attachments/assets/8a440bd0-529f-4bad-b71e-6672959c4e9a" />
 
 
 ## Citations
