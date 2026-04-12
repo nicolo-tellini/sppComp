@@ -147,12 +147,7 @@ plot_density_cov <- function(x, binsize, sample_name) {
   
   dt5 <- as.data.table(x)[is.finite(meandepth) & meandepth > 5]  # filter once
   
-  dt5_plot <- dt5[, {  # remove extreme outliers per species × chr
-    q1 <- quantile(meandepth, 0.25, na.rm = TRUE)
-    q3 <- quantile(meandepth, 0.75, na.rm = TRUE)
-    iqr <- q3 - q1
-    .SD[meandepth >= (q1 - 1.5 * iqr) & meandepth <= (q3 + 1.5 * iqr)]
-  }, by = .(species, chr)]
+  dt5_plot <- dt5
   
   global_dt <- dt5_plot[, .(x = mode1(meandepth), line_type = "Global species mode"), by = species]
   peaks_dt <- dt5_plot[, top2_peaks(meandepth), by = .(species, chr)]
