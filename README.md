@@ -12,7 +12,7 @@
 >[!NOTE]
 > NEW:
 >
-> Added the moda of the coverage to better visualize coverage changes across the species;
+> Added the moda of the coverage to better visualize coverage changes across the chromosomes;
 >
 > Reduce the y limit value to better enphasize diffences now 2.5 x median value excluding bin with less 5X;
 >
