@@ -15,4 +15,4 @@ source config
 /usr/bin/time -v bash ${basedir}/scr/mapcov ${basedir} ${nSamples} ${nThreads}  > ${basedir}/log/mapcov.out 2> ${basedir}/log/mapcov.err
 
 ## multi-sample window-based coverage plot 
-/usr/bin/time -v Rscript ${basedir}/scr/Wplot.r ${basedir} ${binsize} > ${basedir}/log/plot.out 2> ${basedir}/log/plot.err
+/usr/bin/time -v Rscript ${basedir}/scr/Wplot2.r ${basedir} ${binsize} > ${basedir}/log/plot.out 2> ${basedir}/log/plot.err
