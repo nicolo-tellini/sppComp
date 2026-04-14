@@ -7,7 +7,7 @@ source config
 /usr/bin/time -v bash ${basedir}/scr/init 2> /dev/null
 
 ## binner: generate the bins; use it only if you want tocreate a new bin.bed file in rep 
-## /usr/bin/time -v Rscript ${basedir}/scr/binner.r ${basedir} ${binsize} > ${basedir}/log/binner.out 2> ${basedir}/log/binner.err
+/usr/bin/time -v Rscript ${basedir}/scr/binner.r ${basedir} ${binsize} > ${basedir}/log/binner.out 2> ${basedir}/log/binner.err
 
 ## mapping and coverage
 ## NOTE : the per-window average coverage is computed by samtools coverage with the following options: -q5 -Q20 --ff UNMAP,SECONDARY,QCFAIL,DUP
