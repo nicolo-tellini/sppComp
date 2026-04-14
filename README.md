@@ -16,9 +16,7 @@
 >
 > Reduce the y limit value to better enphasize diffences now 2.5 x median value excluding bin with less 5X;
 >
-> Added, in an experimental way, a density plot alongside the coverage plot, to complement coverge visualization;
->
->> In the density plot, the black lines show the distribution of sequencing coverage for each chromosome within each species across windows. The solid blue line marks the main coverage peak for that chromosome, the dashed green line (if present) marks a second coverage peak (agnitude at least 30% of the main peak) indicating an additional group of regions with different coverage (possibly suggesting mixed signals emerging, for example, from complex aneuploidy, like chromosome III (see below section examples)), and the dashed red line shows the overall coverage level for the entire species as a baseline. By comparing these lines, you can see whether a chromosome behaves like the rest of the genome (blue ≈ red) or deviates from it (blue shifted), and whether there is evidence of multiple coverage states within the same chromosome.
+> Added coverage segmentation see [segmentation](#segmentation)
 
 ## *Saccharomyces* species composition (sppComp)
 
@@ -80,6 +78,47 @@ Both the constructs run the same scripts but while ```sppComp.sh``` allows an ag
 :heavy_check_mark: [Testing](https://github.com/nicolo-tellini/sppComp/blob/main/misc/testing.md)
 
 :warning:  [Organisation of the directories](https://github.com/nicolo-tellini/sppComb/blob/main/dirtree.md)
+
+# Segmentation 
+This step identifies genomic regions with consistent deviations in coverage relative to a baseline.
+
+For each sample × species:
+
+1. Compute a baseline coverage as the median of windows with `meandepth > 5`.
+
+2. Convert coverage to log-scale:  
+   `log2ratio = log2(meandepth / baseline)`
+
+3. Apply CBS segmentation (`DNAcopy::segment`) to group adjacent windows with similar signal into segments.
+
+## Output
+
+Each segment contains:
+
+- `loc.start`, `loc.end` → genomic coordinates  
+- `seg.mean` → mean log2-ratio of the segment  
+- `approx_ratio = 2^seg.mean` → fold-change vs baseline
+
+## Interpretation
+seg.mean ≈ 0 (approx_ratio ≈ 1) → baseline coverage
+
+seg.mean > 0 → increased coverage
+
+seg.mean < 0 → decreased coverage
+
+
+| Ploidy     | Baseline CN | Gain | Fold change | log2  |
+| ---------- | ----------- | ------------ | ----------- | ----- |
+| Haploid    | 1           | 2            | 2×          | 1.00  |
+| Diploid    | 2           | 3            | 1.5×        | ~0.58 |
+| Triploid   | 3           | 4            | 1.33×       | ~0.42 |
+| Tetraploid | 4           | 5            | 1.25×       | ~0.32 |
+
+| Ploidy     | Baseline CN | Loss | Fold change | log2   |
+| ---------- | ----------- | ------------ | ----------- | ------ |
+| Diploid    | 2           | 1            | 0.5×        | -1.00  |
+| Triploid   | 3           | 2            | 0.67×       | ~-0.58 |
+| Tetraploid | 4           | 3            | 0.75×       | ~-0.42 |
 
 ## Release history
 
