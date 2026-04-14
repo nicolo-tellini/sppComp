@@ -17,7 +17,7 @@
      		 
 nSamples=2 # number of sample to run in parallel (mapping and coverage extraction)
 nThreads=8 # per-sample number of threads
-binsize=10000 # windows size
+binsize=1000 # windows size
 
 ##########################################################
 #	    DO NOT CHANGE THE VARIABLE BELOW            #
