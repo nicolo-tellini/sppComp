@@ -137,6 +137,7 @@ mamba create -n sppcomp \
     r-tidyverse=2.0.0 \
     bioconductor-biostrings=2.74.0 \
     bioconductor-genomicranges=1.58.0 \
+    bioconductor-dnacopy \
     -c conda-forge -c bioconda
 ```
 Activate the environment:
@@ -147,19 +148,21 @@ mamba activate sppcomp
 
 ## Example
 
-CFS an high coverage 3n S. cerevisiae sample with aneuploidies (+1 chrII; -1 chrVI and complex event on chrIII).
-
-<img width="1566" height="1056" alt="Screenshot from 2026-04-12 15-20-42" src="https://github.com/user-attachments/assets/2bd5aa4b-3038-4e54-9f99-3f2e1a7189d4" />
-
-<img width="1576" height="1042" alt="Screenshot from 2026-04-12 15-46-40" src="https://github.com/user-attachments/assets/fa273073-04c4-4714-ba02-21f11183a524" />
-
 
 CBS 2834 a mid coverage 3n S.cer x S. kud x S.uva sample with complex aneuploidies and species combinations.
 
 <img width="1566" height="1056" alt="Screenshot from 2026-04-12 15-25-11" src="https://github.com/user-attachments/assets/ea64af8d-356e-484a-abb1-c51b0a20a3ca" />
 
-<img width="1576" height="1052" alt="Screenshot from 2026-04-12 15-46-04" src="https://github.com/user-attachments/assets/64b7a4ae-f648-4138-b266-95d49462da08" />
+Signal segmentation CBS 2834
 
+<img width="1849" height="885" alt="Screenshot from 2026-04-14 18-03-43" src="https://github.com/user-attachments/assets/a93392cb-0a3a-48e6-8a4a-7750279375aa" />
+
+<img width="1849" height="885" alt="Screenshot from 2026-04-14 18-04-11" src="https://github.com/user-attachments/assets/55cf7609-b58f-4628-b120-b0b586eb2848" />
+
+<img width="1849" height="885" alt="Screenshot from 2026-04-14 18-04-42" src="https://github.com/user-attachments/assets/3a45497c-8e12-4c18-986c-25af535b4e00" />
+
+<img width="1849" height="885" alt="Screenshot from 2026-04-14 18-05-10" src="https://github.com/user-attachments/assets/3505a3ac-2459-493d-a9c4-6748ea72a73b" />
 
 ## Citations
+
 Please, if you use this pipeline, cite this repo.
