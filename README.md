@@ -16,7 +16,7 @@
 >
 > Reduce the y limit value to better enphasize diffences now 2.5 x median value excluding bin with less 5X;
 >
-> Added coverage segmentation see [segmentation](#segmentation)
+> Added coverage segmentation link to [DNAcopy package](https://bioconda.github.io/recipes/bioconductor-dnacopy/README.html)
 
 ## *Saccharomyces* species composition (sppComp)
 
