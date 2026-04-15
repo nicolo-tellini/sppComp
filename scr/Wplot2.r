@@ -2,7 +2,7 @@
 # Author: Nicolò T.
 # Status: Complete
 # Input: /cov/binned.cov files
-# Output: A single pdf with all sample plots (in ./plots)
+# Output: pdf with all sample plots and segmentation tble in out
 
 # Comment: 
 # 1) required libraries: ggplot2 (3.4.0), tidyverse (1.3.2) and data.table (1.14.6).
@@ -19,8 +19,8 @@ options(stringsAsFactors = F)
 argsVal <- commandArgs(trailingOnly = T)
 baseDir = argsVal[1]
 binsize <- as.numeric(argsVal[2])
-# baseDir <- "/home/tello/sppComb"
-# binsize <- 10000
+ # baseDir <- "/home/tello/sppComb"
+ # binsize <- 10000
 
 setwd(baseDir)
 
@@ -176,6 +176,7 @@ dev.off()
 # dopo, facio una tabella riassuntiva con coverage medio per species
 # solo dopo confronto species tra loro
 seg_dt_final <- data.frame()
+plot_list <- list()
 for (i in 1:length(df)) {
   # prendo il data.frame del campione 1
   x <- as.data.table(df[[i]])
@@ -208,28 +209,30 @@ for (i in 1:length(df)) {
     
     colnames(x1)[1] <- "chrom"
     
-   plot_segment <-  ggplot(x1, aes(x = startpos, y = log2ratio)) +
+    plot_segment <-  ggplot(x1, aes(x = startpos, y = log2ratio)) +
       geom_line(linewidth = 0.3) +
       geom_hline(yintercept = 0, color = "red") +
-     geom_hline(yintercept = 0, color = "red") +
-     geom_hline(yintercept = 0, color = "red") +
+      geom_hline(yintercept = 0, color = "red") +
+      geom_hline(yintercept = 0, color = "red") +
       geom_segment(data = seg_dt,aes(x = loc.start,xend = loc.end,y = seg.mean,yend = seg.mean),inherit.aes = FALSE,
-      color = "blue",linewidth = 1) +
+                   color = "blue",linewidth = 1) +
       facet_wrap(~ chrom, scales = "free_x") +
       theme_bw() +
       labs(subtitle = paste0(names(df)[i],"_",j)) +
-     coord_cartesian(ylim = c(-3, 3))
-   
-   plotPath <- file.path(paste0(outDir,"/",names(df)[i],".seg.spp_",j,".pdf"))
-   pdf(file = plotPath, width = 10, height = 5)
-   plot(plot_segment)
-   dev.off()
-   
-   seg_dt[, approx_ratio := 2^seg.mean]
-   seg_dt[,sample := names(df)[i]]
-   seg_dt[,spp := j]
-   seg_dt$ID <- NULL
-   seg_dt_final <- rbind(seg_dt_final,seg_dt)
+      coord_cartesian(ylim = c(-3, 3))
+    
+    plot_list[[length(plot_list) + 1]] <- plot_segment
+    
+    seg_dt[, approx_ratio := 2^seg.mean]
+    seg_dt[,sample := names(df)[i]]
+    seg_dt[,spp := j]
+    seg_dt$ID <- NULL
+    seg_dt_final <- rbind(seg_dt_final,seg_dt)
   }
   fwrite(seg_dt_final,file = paste0(outDir,"/allsegments.table.txt"),append = F,quote = F,sep = "\t",col.names = T,row.names = F)
 }
+
+plotPath <- file.path(paste0(outDir,"/segmentationPlots.pdf"))
+pdf(file = plotPath, width = 10, height = 5)
+lapply(plot_list,plot)
+dev.off()
