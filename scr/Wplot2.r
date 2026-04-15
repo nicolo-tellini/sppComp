@@ -137,7 +137,7 @@ outDir <- paste0(baseDir,"/out")
 dir.create(outDir,showWarnings = F,recursive = T)
 
 # load all coverage files
-df <- lapply(cov_files,function(x) fread(cmd = paste0("cut -f1,2,3,6,7,9,10 ",baseDir,"/cov/",x),data.table = FALSE))
+df <- lapply(cov_files,function(x) fread(cmd = paste0("cut -f1,2,3,6,7,9,10 ",baseDir,"/cov/",x),data.table = FALSE,skip=1))
 
 orderchr <- paste(allChr,rep(refs, each = length(allChr)), sep = "_")
 
