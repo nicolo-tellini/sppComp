@@ -1,0 +1,13 @@
+#!/bin/bash
+
+source config 
+
+genmap index -F $repdir/saccharomyces_all_assemblies.fa -I $repdir/saccharomyces_all_assemblies.genmap_index
+
+genmap map -K 150 -E 2 -I $repdir/saccharomyces_all_assemblies.genmap_index -O $repdir/saccharomyces_all_assemblies.genmap_k150_e2 --bedgraph
+
+bedtools map -a $repdir/binnedGenome.${binsize}.bed -b $repdir/saccharomyces_all_assemblies.genmap_k150_e2.bedgraph -c 4 -o mean > $repdir/binnedGenome.${binsize}.mappability.bed
+
+bedtools nuc -fi $repdir/saccharomyces_all_assemblies.fa -bed $repdir/binnedGenome.${binsize}.bed > $repdir/windows.gc.tsv
+
+awk 'BEGIN{OFS="\t"} NR>1 {print $1,$2,$3,$5}' $repdir/windows.gc.tsv > $repdir/windows.gc.bed
