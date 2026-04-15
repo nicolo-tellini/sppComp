@@ -130,8 +130,10 @@ Activate the environment:
 ```{bash}
 mamba activate sppcomp
 ```
+You can now edit the config file inside `scr`.
 
-:warning: :warning: :warning: Mappability and GC content files for 1 kb windows are already provided in rep. If you change the window size, you **must** uncomment the genmap and binner script script in sppcomp_runner at lines 11 and 13
+⚠️ ⚠️ ⚠️ **IMPORTANT:** Mappability and GC content files for 1 kb windows are already provided in `rep`.  
+If you change the window size, you **must** uncomment the `genmap` and `binner` steps in `sppcomp_runner` (lines 11 and 13).
 
 ## more about ...
 
