@@ -2,7 +2,7 @@
 # Author: Nicolò T.
 # Status: Complete
 # Input: /cov/binned.cov files
-# Output: pdf with all sample plots and segmentation tble in out
+# Output: A single pdf with all sample plots (in ./plots)
 
 # Comment: 
 # 1) required libraries: ggplot2 (3.4.0), tidyverse (1.3.2) and data.table (1.14.6).
@@ -20,7 +20,7 @@ argsVal <- commandArgs(trailingOnly = T)
 baseDir = argsVal[1]
 binsize <- as.numeric(argsVal[2])
  # baseDir <- "/home/tello/sppComb"
- # binsize <- 10000
+ #  binsize <- 10000
 
 setwd(baseDir)
 
@@ -204,7 +204,13 @@ for (i in 1:length(df)) {
     # Ora uso CNA 
     cna <- CNA(genomdat = x1$log2ratio,chrom = x1$chr,maploc = x1$startpos,data.type = "logratio")
     ## creo i segmenti 
-    seg <- segment(cna,verbose = 1,alpha = 0.01,min.width = 2, undo.splits = "sdundo",undo.SD = 0.8)
+    seg <- segment(cna,
+                   alpha = 0.001,
+                   p.method	="perm",
+                   min.width = 5, 
+                   undo.splits = "sdundo",
+                   undo.SD = 1)
+    
     seg_dt <- as.data.table(seg$output)
     
     colnames(x1)[1] <- "chrom"
