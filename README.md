@@ -18,7 +18,7 @@
 >
 > Added coverage segmentation [DNAcopy package](https://bioconda.github.io/recipes/bioconductor-dnacopy/README.html)
 >
-> Mappability and GC content files for 1 kb windows are already provided in rep. If you change the window size, you must first rerun the genmap script in scr
+> Mappability and GC content files for 1 kb windows are already provided in rep. If you change the window size, you must uncomment the genmap script in sppcomp_runner
 
 ## *Saccharomyces* species composition (sppComp)
 
