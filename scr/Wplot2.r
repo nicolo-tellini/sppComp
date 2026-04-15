@@ -179,55 +179,97 @@ set.seed(1234)
 # segmentazione con baseline per species
 # dopo, facio una tabella riassuntiva con coverage medio per species
 # solo dopo confronto species tra loro
+set.seed(1234)
+
+gc  <- fread(paste0(baseDir,"/rep/windows.gc.bed"), col.names = c("chr","start","end","gc"))
+map <- fread(paste0(baseDir,"/rep/binnedGenome.",binsize,".mappability.bed"), col.names = c("chr","start","end","map"))
+
+setkey(gc,  chr, start, end)
+setkey(map, chr, start, end)
+
 seg_dt_final <- data.frame()
 plot_list <- list()
 for (i in 1:length(df)) {
   # prendo il data.frame del campione 1
   x <- as.data.table(df[[i]])
+  # assicurarsi le colonne hanno il giusto type
+  x[, chr := as.character(chr)]
+  x[, species := as.character(species)]
+  gc[, chr := as.character(chr)]
+  map[, chr := as.character(chr)]
+  x[, chr_full := paste0(chr, "_", species)]
+  
+  # merge cov gc
+  x <- merge(x,gc[, .(chr, start, end, gc)],by.x = c("chr_full", "startpos", "endpos"),by.y = c("chr", "start", "end"),all.x = TRUE)
+  # merge mappability
+  x <- merge(x,map[, .(chr, start, end, map)],by.x = c("chr_full", "startpos", "endpos"),by.y = c("chr", "start", "end"), all.x = TRUE)
+  
+  #convert to numeric
+  x[, map := as.numeric(map)]
+  x[, gc  := as.numeric(gc)]
+  
+  x1 <- copy(x)
+  
+  # filter out bad windows 
+  x1 <- x1[gc >= 0.15 & gc <= 0.85 & map >= 0.80]
   
   # prendo il segnale di una specie alla volta
   for (j in refs) {
+    
     print(paste0(names(df)[i],": ",j))
-    x1 <- x[species == j]
-    # tengo solo le colonne che mi interessano di piu
-    x1 <- x1[, .(chr, startpos, endpos, meandepth)]
-    x1[, chr := as.character(chr)]
-    setorder(x1, chr, startpos)
+    
+    x2 <- copy(x1[species == j])
+    if (nrow(x2) == 0) next
+    
+    x2[, chr := as.character(chr)]
+    setorder(x2, rank_chr, startpos)
+    
+    # GC correction per species
+    x_fit <- x2[meandepth > 5 & is.finite(gc)]
+    if (nrow(x_fit) < 50) next
+    
+    fit_gc <- loess(meandepth ~ gc, data = x_fit, span = 0.4, family = "symmetric")
+    
+    x2[, gc_pred := predict(fit_gc, newdata = x2)]
+    
+    x2 <- x2[is.finite(gc_pred) & gc_pred > 0]
+    if (nrow(x2) == 0) next
+    
+    scale_gc <- median(x2$gc_pred, na.rm = TRUE)
+    
+    x2[, depth_gc := meandepth / gc_pred * scale_gc]
     
     ## devo definire una bseline del coverage
     ## decido che la baseline deve essere la moda ovviamente
     ## levando i valori a 0 senno' in alcune specie sara' zero
     ## al valore baseline aggiungo un val ridocolo per evitare divisioni a 0
-    vals <- x1$meandepth[x1$meandepth > 5]
+    vals <- x2$depth_gc[x2$depth_gc > 5]
     if (length(vals) == 0 || all(is.na(vals))) next
-    baseline <- median(round(vals, 1))   # IMPORTANTISSIMO: arrotonda
+    
+    baseline <- median(round(vals, 1), na.rm = TRUE)
+    
     # creo una colonna con il log2 ratio 
     ## cioe'il log2 di mean_depth diviso la baseline   
-    x1[, log2ratio := log2((meandepth + 0.000000001) / (baseline + 0.000000001))]
+    x2[, log2ratio := log2((depth_gc + 0.000000001) / (baseline + 0.000000001))]
     
-    # Ora uso CNA 
-    cna <- CNA(genomdat = x1$log2ratio,chrom = x1$chr,maploc = x1$startpos,data.type = "logratio")
+    # Ora creo CNA 
+    cna <- CNA(genomdat = x2$log2ratio, chrom = x2$chr, maploc = x2$startpos, data.type = "logratio")
+    # smmoting per valori out
     smoothed.CNA.object <- smooth.CNA(cna)
+    
     ## creo i segmenti 
-    seg <- segment(smoothed.CNA.object,
-                   alpha = 0.001,
-                   min.width = 5, 
-                   undo.splits = "sdundo",
-                   undo.SD = 2)
+    seg <- segment(smoothed.CNA.object,alpha = 0.001, min.width = 5, undo.splits = "sdundo",undo.SD = 2)
     
     seg_dt <- as.data.table(seg$output)
     
-    colnames(x1)[1] <- "chrom"
+    xplot <- copy(x2)
+    xplot[, chrom := chr]
     
-    plot_segment <-  ggplot(x1, aes(x = startpos, y = log2ratio)) +
+    plot_segment <-  ggplot(xplot, aes(x = startpos, y = log2ratio)) +
       geom_line(linewidth = 0.3) +
       geom_hline(yintercept = 0, color = "red") +
-      geom_hline(yintercept = 0, color = "red") +
-      geom_hline(yintercept = 0, color = "red") +
-      geom_segment(data = seg_dt,aes(x = loc.start,xend = loc.end,y = seg.mean,yend = seg.mean),inherit.aes = FALSE,
-                   color = "blue",linewidth = 1) +
-      facet_wrap(~ chrom, scales = "free_x") +
-      theme_bw() +
+      geom_segment(data = seg_dt,aes(x = loc.start, xend = loc.end, y = seg.mean, yend = seg.mean),inherit.aes = FALSE,color = "blue", linewidth = 1) + 
+      facet_wrap(~ chrom, scales = "free_x") + theme_bw() + 
       labs(subtitle = paste0(names(df)[i],"_",j)) +
       coord_cartesian(ylim = c(-3, 3))
     
@@ -236,13 +278,15 @@ for (i in 1:length(df)) {
     seg_dt[, approx_ratio := 2^seg.mean]
     seg_dt[,sample := names(df)[i]]
     seg_dt[,spp := j]
-    seg_dt$ID <- NULL
-    seg_dt_final <- rbind(seg_dt_final,seg_dt)
+    if ("ID" %in% names(seg_dt)) seg_dt[, ID := NULL]
+    
+    seg_dt_final <- rbind(seg_dt_final, seg_dt, fill = TRUE)
   }
-  fwrite(seg_dt_final,file = paste0(outDir,"/allsegments.table.txt"),append = F,quote = F,sep = "\t",col.names = T,row.names = F)
 }
+
+fwrite(seg_dt_final,file = paste0(outDir,"/allsegments.table.txt"),append = F,quote = F,sep = "\t",
+       col.names = T,row.names = F)
 
 plotPath <- file.path(paste0(outDir,"/segmentationPlots.pdf"))
 pdf(file = plotPath, width = 10, height = 5)
 lapply(plot_list,plot)
-dev.off()
