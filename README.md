@@ -166,8 +166,3 @@ Signal segmentation CBS 2834
 ## Citations
 
 Please, if you use this pipeline, cite this repo.
-
-## TODO  list 
-- add GenMap for mappability and GC content
-- correct for mappability and GC content across all the assemblies
-- correct depth and produce normalized log2 ratio
