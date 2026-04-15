@@ -20,21 +20,60 @@
 
 ## *Saccharomyces* species composition (sppComp)
 
-An automated modular computational framework for a rapid glympse to the species composition and genomics features of *Saccharomyces* yeasts from large datasets of paired-end illumina reads, adtapt to deal different computational resourses.
+An automated, modular computational framework for a rapid glimpse of the species composition and genomic features of *Saccharomyces* yeasts from large datasets of paired-end Illumina reads, adapted to handle different computational resources.
 
-SppComp is realeased as part of the (SGRP5 project)[]. 
+SppComp is released as part of the [SGRP5 project]().
 
-SppComp allows the detection of: 
+SppComp allows the detection of:
 
 - hybrids
 - hybrid ploidy (3n and 4n [3n + n])
 - introgressed DNA
-- aneuploidies (relative number)
+- aneuploidies (relative copy number)
 - copy number variations (CNVs)
-
+- 
 ## Description
   
-The species composition of *Saccharomyces* strains plays a major role in biological studies providing valuable insights in the evolutionary history of the *genus* while being exploited for improving indutrial phenotypes. Short-read sequencing are the most popular choice for large-scale genomics projects due to their rapid processesing and affordable prices. As a leading model organisms, the *Saccharomyces* yeasts, heve been massively sequenced with short reads Illumina platfroms. **SppComp** takes advantage of the chromosome-level end-to-end genome assemblies produced/reannotated with [LRSDAY](https://github.com/yjx1217/LRSDAY), SCrapDB and competitive short read mapping, as implemented and described in [MuLo-YDH](https://bitbucket.org/lt11/muloydh/src/master/), to assess the species composition of *Saccharomyces* yeasts from large datasets of paired-end illumina reads. **SppComp** is written in bash and R. By means the implementation of state-of-the-art softwares, [functional programming](http://adv-r.had.co.nz/Functional-programming.html), [vectorised code](https://adv-r.hadley.nz/perf-improve.html#vectorise), **SppComp** reduces computational slowdowns, allowing a full control of the processes.
+The species composition of *Saccharomyces* strains plays a major role in biological studies, providing valuable insights into the evolutionary history of the *genus* while being exploited to improve industrial phenotypes. Short-read sequencing is the most popular choice for large-scale genomics projects due to its rapid processing and affordable cost. As a leading model organism, *Saccharomyces* yeasts have been massively sequenced using Illumina short-read platforms. **SppComp** takes advantage of chromosome-level, end-to-end genome assemblies produced or reannotated with [LRSDAY](https://github.com/yjx1217/LRSDAY), ScRAPdb, and competitive short-read mapping, as implemented and described in [MuLo-YDH](https://bitbucket.org/lt11/muloydh/src/master/), to assess the species composition of *Saccharomyces* yeasts from large datasets of paired-end Illumina reads. **SppComp** is written in Bash and R. By means of the implementation of state-of-the-art software, [functional programming](http://adv-r.had.co.nz/Functional-programming.html) and [vectorized code](https://adv-r.hadley.nz/perf-improve.html#vectorise), **SppComp** reduces computational slowdowns, allowing full control of the processes.
+
+#### Interpreting segmentation table
+
+<table align="center">
+  <thead>
+    <tr>
+      <th align="center">Ploidy</th>
+      <th align="center">Baseline CN</th>
+      <th align="center">Gain</th>
+      <th align="center">Fold change</th>
+      <th align="center">log2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td align="center">Haploid</td><td align="center">1</td><td align="center">2</td><td align="center">2×</td><td align="center">1.00</td></tr>
+    <tr><td align="center">Diploid</td><td align="center">2</td><td align="center">3</td><td align="center">1.5×</td><td align="center">~0.58</td></tr>
+    <tr><td align="center">Triploid</td><td align="center">3</td><td align="center">4</td><td align="center">1.33×</td><td align="center">~0.42</td></tr>
+    <tr><td align="center">Tetraploid</td><td align="center">4</td><td align="center">5</td><td align="center">1.25×</td><td align="center">~0.32</td></tr>
+  </tbody>
+</table>
+
+<br>
+
+<table align="center">
+  <thead>
+    <tr>
+      <th align="center">Ploidy</th>
+      <th align="center">Baseline CN</th>
+      <th align="center">Loss</th>
+      <th align="center">Fold change</th>
+      <th align="center">log2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td align="center">Diploid</td><td align="center">2</td><td align="center">1</td><td align="center">0.5×</td><td align="center">-1.00</td></tr>
+    <tr><td align="center">Triploid</td><td align="center">3</td><td align="center">2</td><td align="center">0.67×</td><td align="center">~-0.58</td></tr>
+    <tr><td align="center">Tetraploid</td><td align="center">4</td><td align="center">3</td><td align="center">0.75×</td><td align="center">~-0.42</td></tr>
+  </tbody>
+</table>
 
 ## Download
 
@@ -52,6 +91,7 @@ cd sppComb
 .
 ├── rep
 ├── misc
+├── tmp
 ├── scr
 └── seq
 ```
@@ -68,52 +108,8 @@ cd sppComb
 
 :warning:  [Organisation of the directories](https://github.com/nicolo-tellini/sppComb/blob/main/dirtree.md)
 
-# Segmentation 
-This step identifies genomic regions with consistent deviations in coverage relative to a baseline.
+## Installation
 
-For each sample × species:
-
-1. Compute a baseline coverage as the median of windows with `meandepth > 5`.
-
-2. Convert coverage to log-scale:  
-   `log2ratio = log2(meandepth / baseline)`
-
-3. Apply CBS segmentation (`DNAcopy::segment`) to group adjacent windows with similar signal into segments.
-
-## Output
-
-Each segment contains:
-
-- `loc.start`, `loc.end` → genomic coordinates  
-- `seg.mean` → mean log2-ratio of the segment  
-- `approx_ratio = 2^seg.mean` → fold-change vs baseline
-
-## Interpretation
-seg.mean ≈ 0 (approx_ratio ≈ 1) → baseline coverage
-
-seg.mean > 0 → increased coverage
-
-seg.mean < 0 → decreased coverage
-
-
-| Ploidy     | Baseline CN | Gain | Fold change | log2  |
-| ---------- | ----------- | ------------ | ----------- | ----- |
-| Haploid    | 1           | 2            | 2×          | 1.00  |
-| Diploid    | 2           | 3            | 1.5×        | ~0.58 |
-| Triploid   | 3           | 4            | 1.33×       | ~0.42 |
-| Tetraploid | 4           | 5            | 1.25×       | ~0.32 |
-
-| Ploidy     | Baseline CN | Loss | Fold change | log2   |
-| ---------- | ----------- | ------------ | ----------- | ------ |
-| Diploid    | 2           | 1            | 0.5×        | -1.00  |
-| Triploid   | 3           | 2            | 0.67×       | ~-0.58 |
-| Tetraploid | 4           | 3            | 0.75×       | ~-0.42 |
-
-## Release history
-
-* v1.0.0 Released in 2023
-
-## Dependencies
 ```{bash}
 mamba create -n sppcomp \
     minimap2=2.28 \
@@ -137,7 +133,6 @@ mamba activate sppcomp
 
 ## Example
 
-
 CBS 2834 3n S.cer x S. kud x S.uva sample with complex aneuploidies and species combinations.
 
 <img width="1566" height="1056" alt="Screenshot from 2026-04-12 15-25-11" src="https://github.com/user-attachments/assets/ea64af8d-356e-484a-abb1-c51b0a20a3ca" />
@@ -152,6 +147,11 @@ Signal segmentation CBS 2834
 
 <img width="1849" height="885" alt="Screenshot from 2026-04-14 18-05-10" src="https://github.com/user-attachments/assets/3505a3ac-2459-493d-a9c4-6748ea72a73b" />
 
+## Release history
+
+* v1.0.1 Realeased in 2026
+* v1.0.0 Released in 2023
+  
 ## Citations
 
 Please, if you use this pipeline, cite this repo.
