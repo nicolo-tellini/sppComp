@@ -100,22 +100,10 @@ cd ..
 ├── rep
 ├── misc
 ├── tmp
+├── rust_cov_bed
 ├── scr
 └── seq
 ```
-
-## more about ...
-
-:warning:  [The Assemblies](https://github.com/nicolo-tellini/sppComb/blob/main/assemblies.md)
-
-:heavy_check_mark: [Competitive mapping](https://academic.oup.com/mbe/article/36/12/2861/5545524?login=false)
-
-:warning: [The Implementation](https://github.com/nicolo-tellini/sppComb/blob/main/deepintothecode.md)
-
-:heavy_check_mark: [Testing](https://github.com/nicolo-tellini/sppComp/blob/main/misc/testing.md)
-
-:warning:  [Organisation of the directories](https://github.com/nicolo-tellini/sppComb/blob/main/dirtree.md)
-
 ## Installation
 
 ```{bash}
@@ -138,6 +126,19 @@ Activate the environment:
 ```{bash}
 mamba activate sppcomp
 ```
+
+## more about ...
+
+:warning:  [The Assemblies](https://github.com/nicolo-tellini/sppComb/blob/main/assemblies.md)
+
+:heavy_check_mark: [Competitive mapping](https://academic.oup.com/mbe/article/36/12/2861/5545524?login=false)
+
+:warning: [The Implementation](https://github.com/nicolo-tellini/sppComb/blob/main/deepintothecode.md)
+
+:heavy_check_mark: [Testing](https://github.com/nicolo-tellini/sppComp/blob/main/misc/testing.md)
+
+:warning:  [Organisation of the directories](https://github.com/nicolo-tellini/sppComb/blob/main/dirtree.md)
+
 
 ## Example
 
