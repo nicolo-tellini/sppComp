@@ -138,7 +138,7 @@ mamba activate sppcomp
 ## Example
 
 
-CBS 2834 a mid coverage 3n S.cer x S. kud x S.uva sample with complex aneuploidies and species combinations.
+CBS 2834 3n S.cer x S. kud x S.uva sample with complex aneuploidies and species combinations.
 
 <img width="1566" height="1056" alt="Screenshot from 2026-04-12 15-25-11" src="https://github.com/user-attachments/assets/ea64af8d-356e-484a-abb1-c51b0a20a3ca" />
 
