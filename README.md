@@ -110,6 +110,8 @@ cd ..
 mamba create -n sppcomp \
     minimap2=2.28 \
     samtools=1.21 \
+    genmap=1.3.0 \
+    bedtools=2.31.1 \
     gawk=5.3.1 \
     parallel=20240722 \
     r-base=4.4.1 \
