@@ -8,6 +8,10 @@
 # 1) required libraries: ggplot2 (3.4.0), tidyverse (1.3.2) and data.table (1.14.6).
 # 2) library versions correspond to those used during the development of the pipeline
 
+# NOTE 
+# If you have any reason for using different segmentation parameters you can edit segment function values 
+# from line 212 to 216. For coverage-based segmentation, there is no universally correct parameter set. 
+# The right choice depends mainly on four things: window size, coverage depth, how noisy the profile is, and the minimum event size you want to detect.
 # Options ---
 
 rm(list = ls())
@@ -169,7 +173,7 @@ plotPath <- file.path(paste0(outDir,"/all_strains.speciescomponent_PPC.pdf"))
 pdf(file = plotPath, width = 12, height = 8)
 lapply(df, plot_fun_BC)
 dev.off()
-
+set.seed(1234)
 ### segmentation ----
 #Io partirei così:
 # segmentazione con baseline per species
@@ -203,13 +207,13 @@ for (i in 1:length(df)) {
     
     # Ora uso CNA 
     cna <- CNA(genomdat = x1$log2ratio,chrom = x1$chr,maploc = x1$startpos,data.type = "logratio")
+    smoothed.CNA.object <- smooth.CNA(cna)
     ## creo i segmenti 
-    seg <- segment(cna,
+    seg <- segment(smoothed.CNA.object,
                    alpha = 0.001,
-                   p.method	="perm",
                    min.width = 5, 
                    undo.splits = "sdundo",
-                   undo.SD = 1)
+                   undo.SD = 2)
     
     seg_dt <- as.data.table(seg$output)
     
