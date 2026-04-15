@@ -17,6 +17,8 @@
 > Reduce the y limit value to better enphasize diffences now 2.5 x median value excluding bin with less 5X;
 >
 > Added coverage segmentation [DNAcopy package](https://bioconda.github.io/recipes/bioconductor-dnacopy/README.html)
+>
+> Mappability and GC content files for 1 kb windows are already provided in rep. If you change the window size, you must first rerun the genmap script in scr
 
 ## *Saccharomyces* species composition (sppComp)
 
