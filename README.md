@@ -77,7 +77,7 @@ The species composition of *Saccharomyces* strains plays a major role in biologi
 ## Download
 
 ```sh
-https://github.com/nicolo-tellini/sppComp.git
+git clone https://github.com/nicolo-tellini/sppComp.git
 
 cd sppComp
 
