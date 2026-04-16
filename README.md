@@ -17,8 +17,6 @@
 > Reduce the y limit value to better enphasize diffences now 2.5 x median value excluding bin with less 5X;
 >
 > Added coverage segmentation [DNAcopy package](https://bioconda.github.io/recipes/bioconductor-dnacopy/README.html)
->
-> Mappability and GC content files for 1 kb windows are already provided in rep. If you change the window size, you **must** uncomment the genmap and binner script script in sppcomp_runner at lines 11 and 13
 
 ## *Saccharomyces* species composition (sppComp)
 
@@ -131,9 +129,6 @@ Activate the environment:
 mamba activate sppcomp
 ```
 You can now edit the config file inside `scr`.
-
-⚠️ ⚠️ ⚠️ **IMPORTANT:** Mappability and GC content files for 1 kb windows are already provided in `rep`.  
-If you change the window size, you **must** uncomment the `genmap` and `binner` steps in `sppcomp_runner` (lines 11 and 13).
 
 ## more about ...
 
