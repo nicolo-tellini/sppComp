@@ -18,22 +18,6 @@
 >
 > Added coverage segmentation [DNAcopy package](https://bioconda.github.io/recipes/bioconductor-dnacopy/README.html)
 
-```mermaid
-flowchart LR
-    reads[/ Paired-end Illumina reads /] --> mapping
-    refs[/ Saccharomyces reference assemblies /] --> refprep
-    refprep[[ Reference preparation ]] --> mapping
-    mapping[[ Competitive mapping ]] --> coverage
-    coverage[[ Per-window coverage ]] --> correction
-    correction[[ GC and mappability correction ]] --> segmentation
-    segmentation[[ CNV segmentation ]] --> interpretation
-    coverage --> interpretation
-    interpretation[[ Genome composition ]] --> species[/ Species and hybrid composition /]
-    interpretation --> ploidy[/ Hybrid ploidy /]
-    interpretation --> introgression[/ Introgressed DNA /]
-    interpretation --> cnv[/ Aneuploidies and CNVs /]
-```
-
 ## *Saccharomyces* species composition (sppComp)
 
 An automated, modular computational framework for a rapid glimpse of the species composition and genomic features of *Saccharomyces* yeasts from large datasets of paired-end Illumina reads, adapted to handle different computational resources.
@@ -50,6 +34,24 @@ SppComp allows the detection of:
 ## Description
   
 The species composition of *Saccharomyces* strains plays a major role in biological studies, providing valuable insights into the evolutionary history of the *genus* while being exploited to improve industrial phenotypes. Short-read sequencing is the most popular choice for large-scale genomics projects due to its rapid processing and affordable cost. As a leading model organism, *Saccharomyces* yeasts have been massively sequenced using Illumina short-read platforms. **SppComp** takes advantage of chromosome-level, end-to-end genome assemblies from the [ScRAPdb](https://www.evomicslab.org/db/ScRAPdb), and competitive short-read mapping, as implemented and described in [MuLo-YDH](https://bitbucket.org/lt11/muloydh/src/master/), to assess the species composition of *Saccharomyces* yeasts from large datasets of paired-end Illumina reads. **SppComp** is written in Bash and R. By means of the implementation of state-of-the-art software, [functional programming](http://adv-r.had.co.nz/Functional-programming.html) and [vectorized code](https://adv-r.hadley.nz/perf-improve.html#vectorise), **SppComp** reduces computational slowdowns.
+
+## Workflow
+
+```mermaid
+flowchart LR
+    reads[/ Paired-end Illumina reads /] --> mapping
+    refs[/ Saccharomyces reference assemblies /] --> refprep
+    refprep[[ Reference preparation ]] --> mapping
+    mapping[[ Competitive mapping ]] --> coverage
+    coverage[[ Per-window coverage ]] --> correction
+    correction[[ GC and mappability correction ]] --> segmentation
+    segmentation[[ CNV segmentation ]] --> interpretation
+    coverage --> interpretation
+    interpretation[[ Genome composition ]] --> species[/ Species and hybrid composition /]
+    interpretation --> ploidy[/ Hybrid ploidy /]
+    interpretation --> introgression[/ Introgressed DNA /]
+    interpretation --> cnv[/ Aneuploidies and CNVs /]
+```
 
 #### Interpreting segmentation table
 
@@ -174,6 +176,130 @@ Signal segmentation CBS 2834
 <img width="1849" height="885" alt="Screenshot from 2026-04-14 18-04-42" src="https://github.com/user-attachments/assets/3a45497c-8e12-4c18-986c-25af535b4e00" />
 
 <img width="1849" height="885" alt="Screenshot from 2026-04-14 18-05-10" src="https://github.com/user-attachments/assets/3505a3ac-2459-493d-a9c4-6748ea72a73b" />
+
+## Detailed implementation
+
+```mermaid
+flowchart TD
+    %% Input
+    reads[/ Paired-end Illumina reads<br>seq/#42;_1.fastq.gz, #42;_2.fastq.gz /]
+    assemblies[/ ScRAPdb reference assemblies<br>rep/ass/#42;.genome.named.fa.gz /]
+    config[/ scr/config<br>nSamples, nThreads, binsize /]
+
+    subgraph setup[" INITIALISATION "]
+        direction TB
+        init[[ init: create log, map, cps, cov, out ]]
+        concat[[ zcat: concatenate assemblies ]]
+        multifasta[( saccharomyces_all_assemblies.fa )]
+        init --> concat
+        concat --> multifasta
+    end
+
+    config --> init
+    assemblies --> concat
+
+    subgraph refprep[" REFERENCE PREPARATION "]
+        direction TB
+        subgraph binning[" Genome Binning "]
+            binner[[ binner.r: Biostrings + GenomicRanges ]]
+            bins[( binnedGenome.binsize.bed )]
+            binner --> bins
+        end
+
+        subgraph mappability[" Mappability "]
+            genmap_index[[ GenMap index ]]
+            genmap_map[[ GenMap map, K 150, E 2 ]]
+            bedtools_map[[ bedtools map: mean per bin ]]
+            genmap_index --> genmap_map
+            genmap_map --> bedtools_map
+        end
+
+        subgraph gccontent[" GC Content "]
+            bedtools_nuc[[ bedtools nuc ]]
+            gc_bed[[ awk: windows.gc.bed ]]
+            bedtools_nuc --> gc_bed
+        end
+    end
+
+    multifasta --> binner
+    multifasta --> genmap_index
+    multifasta --> bedtools_nuc
+    bins --> bedtools_map
+    bins --> bedtools_nuc
+
+    subgraph mapcov[" COMPETITIVE MAPPING AND COVERAGE - GNU parallel, nSamples at a time "]
+        direction TB
+        checkpoint{ Sample already in cps.txt? }
+
+        subgraph mapping[" Competitive Mapping "]
+            minimap2[[ minimap2 -x sr ]]
+        end
+
+        subgraph samtools_wf[" BAM Processing "]
+            fixmate[[ samtools fixmate ]]
+            sort[[ samtools sort ]]
+            markdup[[ samtools markdup ]]
+            view[[ samtools view ]]
+            index[[ samtools index ]]
+            fixmate --> sort
+            sort --> markdup
+            markdup --> view
+            view --> index
+        end
+
+        subgraph coverage[" Per-bin Coverage "]
+            rust_cov[[ rust_cov_bed: MAPQ 20, BQ 5, excl. flags 1796 ]]
+            tag[[ gawk: add sample name ]]
+            rust_cov --> tag
+        end
+
+        cps_update[[ append sample to cps.txt ]]
+        skip([ skip sample ])
+
+        checkpoint -- no --> minimap2
+        checkpoint -- yes --> skip
+        minimap2 --> fixmate
+        index --> rust_cov
+        tag --> cps_update
+    end
+
+    reads --> checkpoint
+    multifasta --> minimap2
+    bins --> rust_cov
+
+    subgraph plotting[" PLOTTING AND SEGMENTATION - Wplot3.r "]
+        direction TB
+        subgraph covplot[" Coverage Profiles "]
+            readcov[[ fread per-sample binned coverage ]]
+            ggcov[[ ggplot2: coverage along chromosomes, median and mode ]]
+            readcov --> ggcov
+        end
+
+        subgraph segmentation[" CNV Segmentation "]
+            filter[[ filter bins: GC 0.15-0.85, mappability >= 0.80 ]]
+            gc_corr[[ loess GC correction ]]
+            map_corr[[ loess mappability correction ]]
+            log2[[ log2 ratio vs per-species baseline ]]
+            dnacopy[[ DNAcopy: CNA, smooth, segment ]]
+            filter --> gc_corr
+            gc_corr --> map_corr
+            map_corr --> log2
+            log2 --> dnacopy
+        end
+    end
+
+    tag --> readcov
+    readcov --> filter
+    gc_bed --> filter
+    bedtools_map --> filter
+
+    %% Outputs
+    out_cov[/ Coverage plots PDF<br>species composition, ploidy, introgressions, aneuploidies /]
+    out_seg[/ allsegments.table.txt<br>segmentationPlots.pdf /]
+
+    ggcov --> out_cov
+    dnacopy --> out_seg
+```
 
 ## Release history
 
