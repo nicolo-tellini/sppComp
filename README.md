@@ -18,6 +18,22 @@
 >
 > Added coverage segmentation [DNAcopy package](https://bioconda.github.io/recipes/bioconductor-dnacopy/README.html)
 
+```mermaid
+flowchart LR
+    reads[/ Paired-end Illumina reads /] --> mapping
+    refs[/ Saccharomyces reference assemblies /] --> refprep
+    refprep[[ Reference preparation ]] --> mapping
+    mapping[[ Competitive mapping ]] --> coverage
+    coverage[[ Per-window coverage ]] --> correction
+    correction[[ GC and mappability correction ]] --> segmentation
+    segmentation[[ CNV segmentation ]] --> interpretation
+    coverage --> interpretation
+    interpretation[[ Genome composition ]] --> species[/ Species and hybrid composition /]
+    interpretation --> ploidy[/ Hybrid ploidy /]
+    interpretation --> introgression[/ Introgressed DNA /]
+    interpretation --> cnv[/ Aneuploidies and CNVs /]
+```
+
 ## *Saccharomyces* species composition (sppComp)
 
 An automated, modular computational framework for a rapid glimpse of the species composition and genomic features of *Saccharomyces* yeasts from large datasets of paired-end Illumina reads, adapted to handle different computational resources.
